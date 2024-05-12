@@ -1,0 +1,79 @@
+[gd_scene load_steps=7 format=3 uid="uid://gnjgk7kbuxqp"]
+
+[ext_resource type="Script" path="res://MyNode.gd" id="1_7sjqq"]
+[ext_resource type="Script" path="res://MySignal.gd" id="2_m4s4w"]
+[ext_resource type="Texture2D" uid="uid://feogjai08gds" path="res://icon.svg" id="3_pbtrr"]
+[ext_resource type="Script" path="res://PlayerMove.gd" id="4_wyfkq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n5fca"]
+size = Vector2(131, 130)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4uwcm"]
+size = Vector2(126, 126.75)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Node2D" type="Node2D" parent="."]
+script = ExtResource("1_7sjqq")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 134.0
+offset_top = 12.0
+offset_right = 195.0
+offset_bottom = 43.0
+scale = Vector2(6, 3.6)
+text = "button"
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 500.0
+offset_top = 200.0
+offset_right = 700.0
+offset_bottom = 300.0
+text = "button2"
+
+[node name="MySignal" type="Button" parent="."]
+offset_left = 150.0
+offset_top = 300.0
+offset_right = 350.0
+offset_bottom = 400.0
+text = "MySignal"
+script = ExtResource("2_m4s4w")
+
+[node name="DisConnectSignalButton" type="Button" parent="."]
+offset_left = 600.0
+offset_right = 850.0
+offset_bottom = 150.0
+text = "DisConnectSignalButton"
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(70, 70)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(-1.5, 1)
+shape = SubResource("RectangleShape2D_n5fca")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+texture = ExtResource("3_pbtrr")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(2, 283)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-1, 4, 1, 343, 946, 345, 940, 4, 681, 214, 110, 197)
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
+color = Color(0, 1, 1, 1)
+polygon = PackedVector2Array(1, 0, 9, 341, 944, 343, 939, 1, 684, 218, 113, 200)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("4_wyfkq")
+
+[node name="PlayerMove" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(195, 201)
+texture = ExtResource("3_pbtrr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(195, 201)
+shape = SubResource("RectangleShape2D_4uwcm")
+
+[connection signal="pressed" from="Button" to="Node2D" method="_on_button_pressed"]
