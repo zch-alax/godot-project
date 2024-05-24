@@ -1,4 +1,26 @@
-[gd_scene format=3 uid="uid://c8toec5sibw0v"]
+[gd_scene load_steps=2 format=3 uid="uid://c8toec5sibw0v"]
+
+[ext_resource type="Script" path="res://brackeys_godot.gd" id="1_hp30e"]
 
 [node name="Node2D" type="Node2D"]
-position = Vector2(227, 162)
+position = Vector2(100, 100)
+script = ExtResource("1_hp30e")
+a = 110
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -211.5
+offset_top = -100.5
+offset_right = 211.5
+offset_bottom = 100.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 48
+text = "THIS IS A LABEL"
+horizontal_alignment = 1
+vertical_alignment = 1

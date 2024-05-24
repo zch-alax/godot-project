@@ -21,5 +21,5 @@ func _ready():
 	# 移除一个键
 	d.erase("mother")
 	# 获取键的另一种方式
-	e.age = 44
+	
 	
