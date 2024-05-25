@@ -1,11 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://c8toec5sibw0v"]
+[gd_scene load_steps=3 format=3 uid="uid://c8toec5sibw0v"]
 
 [ext_resource type="Script" path="res://brackeys_godot.gd" id="1_hp30e"]
+[ext_resource type="Script" path="res://Character.gd" id="2_e0r3f"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("character_kill")]
 position = Vector2(100, 100)
 script = ExtResource("1_hp30e")
-a = 110
+character_kill = NodePath("Character2")
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 8
@@ -24,3 +25,18 @@ theme_override_font_sizes/font_size = 48
 text = "THIS IS A LABEL"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Character" type="Node" parent="."]
+script = ExtResource("2_e0r3f")
+profession = "posion seller"
+health = 50
+
+[node name="Character2" type="Node" parent="."]
+script = ExtResource("2_e0r3f")
+profession = "EX-adventurer"
+health = 30
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
