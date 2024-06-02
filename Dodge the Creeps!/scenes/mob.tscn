@@ -48,7 +48,7 @@ animations = [{
 radius = 33.0
 height = 82.0
 
-[node name="Mob" type="RigidBody2D"]
+[node name="Mob" type="RigidBody2D" groups=["mobs"]]
 collision_mask = 0
 script = ExtResource("1_dwh2u")
 metadata/_edit_group_ = true
