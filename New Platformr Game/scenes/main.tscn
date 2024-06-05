@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://kyndc68uhnkf"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_mitdc"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_mitdc")
+
+[node name="Play" type="Button" parent="."]
+offset_left = 387.0
+offset_top = 200.0
+offset_right = 695.0
+offset_bottom = 293.0
+text = "Play"
+
+[node name="Quit" type="Button" parent="."]
+offset_left = 391.0
+offset_top = 388.0
+offset_right = 699.0
+offset_bottom = 481.0
+tooltip_text = "This is the Quit Button"
+text = "Quit"
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
