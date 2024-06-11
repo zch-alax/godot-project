@@ -1,0 +1,67 @@
+[gd_scene load_steps=11 format=3 uid="uid://bq66rnov8lukf"]
+
+[ext_resource type="Script" path="res://character.gd" id="1_fo0gd"]
+[ext_resource type="Script" path="res://FSM.gd" id="2_ebbnq"]
+[ext_resource type="Texture2D" uid="uid://btvs2ia5j6grl" path="res://color - godot/green.png" id="2_lrkve"]
+[ext_resource type="Texture2D" uid="uid://bv2n77yutjnit" path="res://color - godot/blue.png" id="2_uhenl"]
+[ext_resource type="Script" path="res://RED.gd" id="3_nt0sc"]
+[ext_resource type="Script" path="res://BLUE.gd" id="4_u0tmw"]
+[ext_resource type="Texture2D" uid="uid://bjqcssc22c7n4" path="res://color - godot/red.png" id="4_whb1n"]
+[ext_resource type="Script" path="res://GREEN.gd" id="5_b1f1b"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qa4qb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_uhenl")
+}],
+"loop": true,
+"name": &"blue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_lrkve")
+}],
+"loop": true,
+"name": &"green",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_whb1n")
+}],
+"loop": true,
+"name": &"red",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uhvqg"]
+radius = 49.0102
+
+[node name="Character" type="CharacterBody2D"]
+script = ExtResource("1_fo0gd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -4)
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_qa4qb")
+animation = &"blue"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -4)
+shape = SubResource("CircleShape2D_uhvqg")
+
+[node name="FSM" type="Node" parent="."]
+script = ExtResource("2_ebbnq")
+
+[node name="RED" type="Node" parent="FSM"]
+script = ExtResource("3_nt0sc")
+
+[node name="BLUE" type="Node" parent="FSM"]
+script = ExtResource("4_u0tmw")
+
+[node name="GREEN" type="Node" parent="FSM"]
+script = ExtResource("5_b1f1b")
