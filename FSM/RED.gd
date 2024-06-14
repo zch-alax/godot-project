@@ -15,6 +15,7 @@ func update(delta: float) -> void:
 
 func exit_condition() -> bool:
 	return true
+	
 func on_enter() -> void:
 	animated_sprite_2d.play("red")
 	print("Entered redState")

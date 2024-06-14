@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bq66rnov8lukf"]
+[gd_scene load_steps=13 format=3 uid="uid://bq66rnov8lukf"]
 
 [ext_resource type="Script" path="res://character.gd" id="1_fo0gd"]
 [ext_resource type="Script" path="res://FSM.gd" id="2_ebbnq"]
@@ -8,6 +8,8 @@
 [ext_resource type="Script" path="res://BLUE.gd" id="4_u0tmw"]
 [ext_resource type="Texture2D" uid="uid://bjqcssc22c7n4" path="res://color - godot/red.png" id="4_whb1n"]
 [ext_resource type="Script" path="res://GREEN.gd" id="5_b1f1b"]
+[ext_resource type="Texture2D" uid="uid://dmpp0rhxqx5qg" path="res://color - godot/yellow.png" id="5_fn7ts"]
+[ext_resource type="Script" path="res://Yellow.gd" id="10_t17yv"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qa4qb"]
 animations = [{
@@ -34,6 +36,14 @@ animations = [{
 "loop": true,
 "name": &"red",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_fn7ts")
+}],
+"loop": true,
+"name": &"yellow",
+"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uhvqg"]
@@ -47,7 +57,7 @@ unique_name_in_owner = true
 position = Vector2(0, -4)
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_qa4qb")
-animation = &"blue"
+animation = &"yellow"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -65,3 +75,6 @@ script = ExtResource("4_u0tmw")
 
 [node name="GREEN" type="Node" parent="FSM"]
 script = ExtResource("5_b1f1b")
+
+[node name="Yellow" type="Node" parent="FSM"]
+script = ExtResource("10_t17yv")
