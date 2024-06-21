@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://l1hpe3eus5vg"
+path="res://.godot/imported/Exit_2.wav-932aa7713c51afe2a1a13a44d729cfa8.sample"
+
+[deps]
+
+source_file="res://assets/HALFTONE SFX Pack LITE/UI/3. Exit & Cancel/Exit_2.wav"
+dest_files=["res://.godot/imported/Exit_2.wav-932aa7713c51afe2a1a13a44d729cfa8.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

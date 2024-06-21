@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://by4nhfwn8yuf7"
+path="res://.godot/imported/Hit_2.wav-3794002ffba9bb37ffb5f6f2e679cf08.sample"
+
+[deps]
+
+source_file="res://assets/HALFTONE SFX Pack LITE/Gameplay/4. Impact/Hit_2.wav"
+dest_files=["res://.godot/imported/Hit_2.wav-3794002ffba9bb37ffb5f6f2e679cf08.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

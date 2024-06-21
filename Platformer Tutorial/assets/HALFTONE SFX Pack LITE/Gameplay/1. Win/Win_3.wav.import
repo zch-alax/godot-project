@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://olvchabjio8r"
+path="res://.godot/imported/Win_3.wav-8206657c070a1e3f30b2f205447f12ae.sample"
+
+[deps]
+
+source_file="res://assets/HALFTONE SFX Pack LITE/Gameplay/1. Win/Win_3.wav"
+dest_files=["res://.godot/imported/Win_3.wav-8206657c070a1e3f30b2f205447f12ae.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://buiqy05l54whn"
+path="res://.godot/imported/Powerup_15.wav-4e07a12c2c326e6e568dab73ac8215d2.sample"
+
+[deps]
+
+source_file="res://assets/HALFTONE SFX Pack LITE/Gameplay/6. Bullets & Powerups/Powerup_15.wav"
+dest_files=["res://.godot/imported/Powerup_15.wav-4e07a12c2c326e6e568dab73ac8215d2.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cmwm40b4r5x77"
+path="res://.godot/imported/Click_5.wav-846807c294229772a708f2c6da7d82ff.sample"
+
+[deps]
+
+source_file="res://assets/HALFTONE SFX Pack LITE/UI/2. Clicks/Click_5.wav"
+dest_files=["res://.godot/imported/Click_5.wav-846807c294229772a708f2c6da7d82ff.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

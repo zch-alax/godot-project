@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bl4f63jsuhb4w"
+path="res://.godot/imported/Pop_3.wav-e1dd7a50689370590bf50a3032939dd6.sample"
+
+[deps]
+
+source_file="res://assets/HALFTONE SFX Pack LITE/Gameplay/7. Blip, Blop and Pops/Pop_3.wav"
+dest_files=["res://.godot/imported/Pop_3.wav-e1dd7a50689370590bf50a3032939dd6.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
