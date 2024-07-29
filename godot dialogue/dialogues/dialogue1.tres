@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="DialogueGroup" load_steps=7 format=3 uid="uid://magtspxclr1w"]
+
+[ext_resource type="Script" path="res://scripts/dialogue_group.gd" id="1_ocga2"]
+[ext_resource type="Texture2D" uid="uid://bxnb8wibidv81" path="res://assets/Pixel-Portraits-Free/Masculine_A/Masculine_A_annoyed.png" id="1_vsnbo"]
+[ext_resource type="Script" path="res://scripts/dialogue.gd" id="2_pstuw"]
+[ext_resource type="Texture2D" uid="uid://2yk2xpovlg8n" path="res://assets/Pixel-Portraits-Free/Feminine_A/Feminine_A_annoyed.png" id="3_mn6mx"]
+
+[sub_resource type="Resource" id="Resource_nb0vi"]
+script = ExtResource("2_pstuw")
+character_name = "张三"
+avatar = ExtResource("1_vsnbo")
+show_on_left = true
+content = "您好！伟大的游戏设计者！欢迎您来到这个小镇！"
+
+[sub_resource type="Resource" id="Resource_hvmgm"]
+script = ExtResource("2_pstuw")
+character_name = "钟创洪"
+avatar = ExtResource("3_mn6mx")
+show_on_left = false
+content = "你好，村长！这个小镇看着特别的荒芜，是发生了什么事情吗？"
+
+[resource]
+script = ExtResource("1_ocga2")
+dialogue_list = Array[ExtResource("2_pstuw")]([SubResource("Resource_nb0vi"), SubResource("Resource_hvmgm")])
