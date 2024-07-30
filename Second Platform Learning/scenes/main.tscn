@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cto282phlts1o"]
+[gd_scene load_steps=25 format=3 uid="uid://cto282phlts1o"]
 
 [ext_resource type="Texture2D" uid="uid://de8v5u0b4ooxb" path="res://assets/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/04-Fall/Fall 01.png" id="1_0wek4"]
 [ext_resource type="Texture2D" uid="uid://bfhmlirgs3i8u" path="res://assets/Palm Tree Island/Sprites/Terrain/Terrain (32x32).png" id="1_3ek37"]
@@ -17,6 +17,9 @@
 [ext_resource type="Texture2D" uid="uid://bbx0h6f3k56p7" path="res://assets/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 04.png" id="13_jxo4x"]
 [ext_resource type="Texture2D" uid="uid://i4ujaqo85eml" path="res://assets/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 05.png" id="14_ukgmj"]
 [ext_resource type="Texture2D" uid="uid://cciw0qqa2i6mg" path="res://assets/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 06.png" id="15_juwf0"]
+[ext_resource type="Script" path="res://scripts/fsm/fsm.gd" id="18_0j7kk"]
+[ext_resource type="Script" path="res://scripts/player/states/player_idle_state.gd" id="19_iavip"]
+[ext_resource type="Script" path="res://scripts/player/states/player_run_state.gd" id="20_03fqr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6s2vr"]
 texture = ExtResource("1_3ek37")
@@ -576,3 +579,16 @@ animation = &"idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_p42dl")
+
+[node name="FSM" type="Node" parent="Player"]
+script = ExtResource("18_0j7kk")
+
+[node name="Idle" type="Node" parent="Player/FSM"]
+script = ExtResource("19_iavip")
+
+[node name="Run" type="Node" parent="Player/FSM"]
+script = ExtResource("20_03fqr")
+
+[node name="Jump" type="Node" parent="Player/FSM"]
+
+[node name="Fall" type="Node" parent="Player/FSM"]
