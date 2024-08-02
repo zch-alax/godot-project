@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cto282phlts1o"]
+[gd_scene load_steps=27 format=3 uid="uid://cto282phlts1o"]
 
 [ext_resource type="Texture2D" uid="uid://de8v5u0b4ooxb" path="res://assets/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/04-Fall/Fall 01.png" id="1_0wek4"]
 [ext_resource type="Texture2D" uid="uid://bfhmlirgs3i8u" path="res://assets/Palm Tree Island/Sprites/Terrain/Terrain (32x32).png" id="1_3ek37"]
@@ -20,6 +20,8 @@
 [ext_resource type="Script" path="res://scripts/fsm/fsm.gd" id="18_0j7kk"]
 [ext_resource type="Script" path="res://scripts/player/states/player_idle_state.gd" id="19_iavip"]
 [ext_resource type="Script" path="res://scripts/player/states/player_run_state.gd" id="20_03fqr"]
+[ext_resource type="Script" path="res://scripts/player/states/player_jump_state.gd" id="21_brlk6"]
+[ext_resource type="Script" path="res://scripts/player/states/player_fall_state.gd" id="22_fhp6p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6s2vr"]
 texture = ExtResource("1_3ek37")
@@ -590,5 +592,12 @@ script = ExtResource("19_iavip")
 script = ExtResource("20_03fqr")
 
 [node name="Jump" type="Node" parent="Player/FSM"]
+script = ExtResource("21_brlk6")
 
 [node name="Fall" type="Node" parent="Player/FSM"]
+script = ExtResource("22_fhp6p")
+
+[node name="CoyoteTimer" type="Timer" parent="Player/FSM/Fall"]
+process_callback = 0
+wait_time = 0.1
+one_shot = true

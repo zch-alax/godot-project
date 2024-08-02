@@ -19,4 +19,4 @@ func exit():
 	pass
 
 func change_state(next_state):
-	pass
+	fsm.change_state(next_state)

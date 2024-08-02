@@ -1,17 +1,15 @@
-extends State
+extends PlayerBaseState
+
+func enter():
+	play("idle")
+
 
 func physics_update(delta):
-	var x_input = Input.get_axis("btn_left", "btn_right")
-	object.direction = x_input
-	object.velocity.x = x_input * 90
+	move(delta, false)
 	
-	if Input.is_action_just_pressed("btn_jump") and object.is_on_floor():
+	if object.is_jump_just_pressed():
 		change_state("jump")
-	elif not object.is_on_floor() and object.velocity.y >= 0:
+	elif not object.is_on_floor():
 		change_state("fall")
-	elif x_input == 0 and object.is_on_floor():
-		object.animated_sprite.play("idle")
-	elif object.is_on_floor():
+	elif object.get_input_x() != 0:
 		change_state("run")
-	
-	object.move_and_slide()
