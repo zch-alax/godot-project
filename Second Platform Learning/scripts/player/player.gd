@@ -17,16 +17,12 @@ var direction:
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var fsm = $FSM
+@onready var input = $InputHandler
 
 func _ready():
 	fsm.change_state("idle")
 
 
 func _physics_process(delta):
+	input.update()
 	fsm.physics_update(delta)
-
-func get_input_x():
-	return Input.get_axis("btn_left", "btn_right")
-
-func is_jump_just_pressed():
-	return Input.is_action_just_pressed("btn_jump")

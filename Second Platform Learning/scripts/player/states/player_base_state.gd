@@ -1,12 +1,18 @@
 extends State
 class_name PlayerBaseState
 
-var is_gravity = false
+var input:
+	get:
+		return object.input
+
+var is_on_floor:
+	get:
+		return object.is_on_floor()
 
 func play(animation):
 	object.animated_sprite.play(animation)
 
-func move(delta, apply_g, update_direction = true, direction = object.get_input_x()):
+func move(delta, apply_g, update_direction = true, direction = input.x):
 	accelerate(delta, direction)
 	if apply_g:
 		apply_gravity(delta)
@@ -17,7 +23,7 @@ func move(delta, apply_g, update_direction = true, direction = object.get_input_
 func jump():
 	object.velocity.y = -300
 
-func accelerate(delta, direction = object.get_input_x()):
+func accelerate(delta, direction = input.x):
 	var mult = Player.AIR_MULTIPLIER if not object.is_on_floor() else 1.0
 	object.velocity.x = move_toward(object.velocity.x, Player.MAX_SPEED * direction, Player.ACCELERATION * mult * delta)
 

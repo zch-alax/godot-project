@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cto282phlts1o"]
+[gd_scene load_steps=28 format=3 uid="uid://cto282phlts1o"]
 
 [ext_resource type="Texture2D" uid="uid://de8v5u0b4ooxb" path="res://assets/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/04-Fall/Fall 01.png" id="1_0wek4"]
 [ext_resource type="Texture2D" uid="uid://bfhmlirgs3i8u" path="res://assets/Palm Tree Island/Sprites/Terrain/Terrain (32x32).png" id="1_3ek37"]
@@ -22,6 +22,7 @@
 [ext_resource type="Script" path="res://scripts/player/states/player_run_state.gd" id="20_03fqr"]
 [ext_resource type="Script" path="res://scripts/player/states/player_jump_state.gd" id="21_brlk6"]
 [ext_resource type="Script" path="res://scripts/player/states/player_fall_state.gd" id="22_fhp6p"]
+[ext_resource type="Script" path="res://scripts/player/input_handler.gd" id="23_p2ake"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6s2vr"]
 texture = ExtResource("1_3ek37")
@@ -603,3 +604,9 @@ wait_time = 0.1
 one_shot = true
 
 [node name="InputHandler" type="Node" parent="Player"]
+script = ExtResource("23_p2ake")
+
+[node name="JmpBufferTimer" type="Timer" parent="Player/InputHandler"]
+process_callback = 0
+wait_time = 0.1
+one_shot = true
