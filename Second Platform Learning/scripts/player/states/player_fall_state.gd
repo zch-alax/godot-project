@@ -14,6 +14,8 @@ func physics_update(delta):
 		change_state("jump")
 	
 	if is_on_floor:
+		if input.jump_buffer:
+			change_state("jump")
 		if input.x == 0:
 			change_state("idle")
 		else:

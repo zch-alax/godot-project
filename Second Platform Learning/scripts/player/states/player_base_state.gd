@@ -22,6 +22,7 @@ func move(delta, apply_g, update_direction = true, direction = input.x):
 
 func jump():
 	object.velocity.y = -300
+	object.velocity.x += input.x * Player.MAX_SPEED
 
 func accelerate(delta, direction = input.x):
 	var mult = Player.AIR_MULTIPLIER if not object.is_on_floor() else 1.0
