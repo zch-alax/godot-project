@@ -10,14 +10,14 @@ var jump_just_pressed = false:
 
 var jump_buffer:
 	get:
-		return not jmp_buffer_timer.is_stopped()
+		return not jump_buffer_timer.is_stopped()
 	set(value):
 		if value:
-			jmp_buffer_timer.start()
+			jump_buffer_timer.start()
 		else:
-			jmp_buffer_timer.stop()
+			jump_buffer_timer.stop()
 
-@onready var jmp_buffer_timer = $JmpBufferTimer
+@onready var jump_buffer_timer = $JumpBufferTimer
 
 func update():
 	x = Input.get_axis("btn_left", "btn_right")

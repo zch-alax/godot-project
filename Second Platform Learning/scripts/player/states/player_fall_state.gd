@@ -12,11 +12,10 @@ func physics_update(delta):
 	
 	if not coyote_timer.is_stopped() and input.jump_just_pressed:
 		change_state("jump")
-	
-	if is_on_floor:
+	elif is_on_floor:
 		if input.jump_buffer:
 			change_state("jump")
-		if input.x == 0:
+		elif input.x == 0:
 			change_state("idle")
 		else:
 			change_state("run")

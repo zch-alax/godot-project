@@ -21,7 +21,7 @@ func move(delta, apply_g, update_direction = true, direction = input.x):
 	object.move_and_slide()
 
 func jump():
-	object.velocity.y = -300
+	object.velocity.y = -350
 	object.velocity.x += input.x * Player.MAX_SPEED
 
 func accelerate(delta, direction = input.x):

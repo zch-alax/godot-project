@@ -11,6 +11,7 @@ func enter():
 func physics_update(delta):
 	move(delta, true)
 	
+	# variable_jump_height用于防止在相同条件下重复进入
 	if not variable_jump_height and not input.jump_pressed:
 		variable_jump_height = true
 		if object.velocity.y <= 0:
