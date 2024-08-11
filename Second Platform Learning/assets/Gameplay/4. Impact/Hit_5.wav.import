@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://xf86jn0j0c0h"
+path="res://.godot/imported/Hit_5.wav-0c0676928b7bdc9812ade94c84edf2d0.sample"
+
+[deps]
+
+source_file="res://assets/Gameplay/4. Impact/Hit_5.wav"
+dest_files=["res://.godot/imported/Hit_5.wav-0c0676928b7bdc9812ade94c84edf2d0.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

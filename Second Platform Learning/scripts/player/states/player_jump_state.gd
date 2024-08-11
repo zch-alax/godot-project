@@ -1,12 +1,14 @@
 extends PlayerBaseState
 
 var variable_jump_height
+@onready var jump_sfx = $JumpSFX
 
 func enter():
 	play("jump")
 	jump()
 	variable_jump_height  = false
 	input.jump_buffer = false
+	jump_sfx.play()
 
 func physics_update(delta):
 	move(delta, true)

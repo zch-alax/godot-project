@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dren0n1hsocyw"
+path="res://.godot/imported/Ambient_1.wav-5e24b8f2030d8f317fbf850024aedf1f.sample"
+
+[deps]
+
+source_file="res://assets/Gameplay/9. Ambient/Ambient_1.wav"
+dest_files=["res://.godot/imported/Ambient_1.wav-5e24b8f2030d8f317fbf850024aedf1f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

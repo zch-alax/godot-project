@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://djjh6t0y78o4t"
+path="res://.godot/imported/Collectibles_1.wav-463a750b3df8a4b8ed9578b7236c2a7b.sample"
+
+[deps]
+
+source_file="res://assets/Gameplay/5. Collectibles/Collectibles_1.wav"
+dest_files=["res://.godot/imported/Collectibles_1.wav-463a750b3df8a4b8ed9578b7236c2a7b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

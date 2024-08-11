@@ -7,6 +7,7 @@ func _ready():
 
 func _on_body_entered(body):
 	animated_sprite.play("collect")
+	$CoinSFX.play()
 
 func _on_animated_sprite_2d_animation_finished():
 	queue_free()

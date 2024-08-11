@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://blb2stq0ma5y1"
+path="res://.godot/imported/Bullet_11.wav-cd35deea732b418868bd28b2e1108cb6.sample"
+
+[deps]
+
+source_file="res://assets/Gameplay/6. Bullets & Powerups/Bullet_11.wav"
+dest_files=["res://.godot/imported/Bullet_11.wav-cd35deea732b418868bd28b2e1108cb6.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

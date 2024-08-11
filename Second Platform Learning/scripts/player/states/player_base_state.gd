@@ -10,6 +10,8 @@ var is_on_floor:
 		return object.is_on_floor()
 
 func play(animation):
+	if object.sword and object.animated_sprite.sprite_frames.has_animation(animation + "_sword"):
+		animation += "_sword"
 	object.animated_sprite.play(animation)
 
 func move(delta, apply_g, update_direction = true, direction = input.x):

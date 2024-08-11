@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://0hviutogg88v"
+path="res://.godot/imported/Win_3.wav-d4229fd1c4a3825a5e4bbb2992ca6935.sample"
+
+[deps]
+
+source_file="res://assets/Gameplay/1. Win/Win_3.wav"
+dest_files=["res://.godot/imported/Win_3.wav-d4229fd1c4a3825a5e4bbb2992ca6935.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

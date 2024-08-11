@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dq86opj4s8i55"
+path="res://.godot/imported/Bounce_3.wav-4b33bb7c49ff45eb0af3515837476204.sample"
+
+[deps]
+
+source_file="res://assets/Gameplay/3. Movement/Bounce_3.wav"
+dest_files=["res://.godot/imported/Bounce_3.wav-4b33bb7c49ff45eb0af3515837476204.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

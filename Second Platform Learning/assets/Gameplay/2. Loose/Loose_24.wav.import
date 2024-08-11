@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://kajjawn83ij4"
+path="res://.godot/imported/Loose_24.wav-02152c0890eb306eb70294ccd2cd7cda.sample"
+
+[deps]
+
+source_file="res://assets/Gameplay/2. Loose/Loose_24.wav"
+dest_files=["res://.godot/imported/Loose_24.wav-02152c0890eb306eb70294ccd2cd7cda.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://rnk1hw5cimci"
+path="res://.godot/imported/Steps_1.wav-80116e6f1cc853783b8bd15834c26f5e.sample"
+
+[deps]
+
+source_file="res://assets/Gameplay/3. Movement/Steps_1.wav"
+dest_files=["res://.godot/imported/Steps_1.wav-80116e6f1cc853783b8bd15834c26f5e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

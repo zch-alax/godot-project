@@ -1,0 +1,22 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://b84d618o232wq"]
+
+[ext_resource type="Texture2D" uid="uid://jxyl3ln2yssr" path="res://assets/Wood and Paper UI/Sprites/Prefabs/8.png" id="1_swojj"]
+[ext_resource type="FontFile" uid="uid://dn3r5f1qsmnrb" path="res://assets/Wood and Paper UI/Sprites/Small Text/small-text.png" id="2_h4f1a"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_deh8p"]
+content_margin_left = 24.0
+content_margin_top = 24.0
+content_margin_right = 24.0
+content_margin_bottom = 24.0
+texture = ExtResource("1_swojj")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[resource]
+default_font = ExtResource("2_h4f1a")
+default_font_size = 8
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_deh8p")
