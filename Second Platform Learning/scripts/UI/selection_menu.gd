@@ -12,6 +12,7 @@ var selection_index: int:
 func _ready():
 	selection_items = selection_container.get_children()
 	selection_index = 0
+	disable()
 	
 func enable():
 	set_process_input(true)

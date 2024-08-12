@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cto282phlts1o"]
+[gd_scene load_steps=29 format=3 uid="uid://cto282phlts1o"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_8tuxc"]
 [ext_resource type="Texture2D" uid="uid://bbd8j22uicahl" path="res://assets/Palm Tree Island/Sprites/Background/Additional Sky.png" id="1_g4hh3"]
@@ -19,7 +19,10 @@
 [ext_resource type="Theme" uid="uid://b84d618o232wq" path="res://scenes/themes/paper_theme.tres" id="15_g8en7"]
 [ext_resource type="Script" path="res://scripts/UI/exit_selection.gd" id="17_da3ia"]
 [ext_resource type="Script" path="res://scripts/UI/new_game_selection.gd" id="17_nx8yl"]
+[ext_resource type="Script" path="res://scripts/UI/continue_selection.gd" id="20_176x6"]
+[ext_resource type="Script" path="res://scripts/UI/transition.gd" id="20_pqkjo"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="20_ww84j"]
+[ext_resource type="Script" path="res://scripts/UI/main_menu_selection.gd" id="21_6wb83"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pukkr"]
 animations = [{
@@ -40,6 +43,96 @@ animations = [{
 "name": &"default",
 "speed": 10.0
 }]
+
+[sub_resource type="Animation" id="Animation_gf3hd"]
+resource_name = "fade_in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_uk66f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_d44pk"]
+resource_name = "fade_out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gmboa"]
+_data = {
+"RESET": SubResource("Animation_uk66f"),
+"fade_in": SubResource("Animation_gf3hd"),
+"fade_out": SubResource("Animation_d44pk")
+}
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_8tuxc")
@@ -122,6 +215,8 @@ texture = ExtResource("8_jsmw6")
 centered = false
 
 [node name="MainMenu" type="CanvasLayer" parent="." node_paths=PackedStringArray("selection_container")]
+process_mode = 3
+visible = false
 script = ExtResource("13_ol1rg")
 selection_container = NodePath("MainMenuPanel/MainMenuContainer/SelectionPanel/SelectionContainer")
 
@@ -189,8 +284,11 @@ size_flags_horizontal = 4
 text = "exit"
 script = ExtResource("17_da3ia")
 
-[node name="PauseMenu" type="CanvasLayer" parent="."]
+[node name="PauseMenu" type="CanvasLayer" parent="." node_paths=PackedStringArray("selection_container")]
+process_mode = 3
 visible = false
+script = ExtResource("13_ol1rg")
+selection_container = NodePath("PausePanel/PauseContainer/SelectionPanel/SelectionContainer")
 
 [node name="ColorRect" type="ColorRect" parent="PauseMenu"]
 anchors_preset = 15
@@ -246,6 +344,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
 text = "continue"
+script = ExtResource("20_176x6")
 
 [node name="OptionsLabel" type="Label" parent="PauseMenu/PausePanel/PauseContainer/SelectionPanel/SelectionContainer"]
 layout_mode = 2
@@ -256,9 +355,30 @@ text = "options"
 layout_mode = 2
 size_flags_horizontal = 4
 text = "main menu"
+script = ExtResource("21_6wb83")
+
+[node name="Transition" type="CanvasLayer" parent="."]
+process_mode = 3
+script = ExtResource("20_pqkjo")
+
+[node name="ColorRect" type="ColorRect" parent="Transition"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Transition/ColorRect"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_gmboa")
+}
 
 [node name="World" type="Node2D" parent="."]
 script = ExtResource("20_ww84j")
 levels_map = {
 "level_1": "res://scenes/levels/level_1.tscn"
 }
+
+[connection signal="animation_finished" from="Transition/ColorRect/AnimationPlayer" to="Transition" method="_on_animation_player_animation_finished"]

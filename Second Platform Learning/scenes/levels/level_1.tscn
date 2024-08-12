@@ -1,6 +1,7 @@
-[gd_scene load_steps=48 format=3 uid="uid://bvmso5msaeexn"]
+[gd_scene load_steps=49 format=3 uid="uid://bvmso5msaeexn"]
 
 [ext_resource type="Texture2D" uid="uid://bfhmlirgs3i8u" path="res://assets/Palm Tree Island/Sprites/Terrain/Terrain (32x32).png" id="1_fliaa"]
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_gwu50"]
 [ext_resource type="PackedScene" uid="uid://bi1rreg1yl0wq" path="res://scenes/collectables/gold_coin.tscn" id="2_63qks"]
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="3_e8aav"]
 [ext_resource type="Texture2D" uid="uid://de8v5u0b4ooxb" path="res://assets/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/04-Fall/Fall 01.png" id="4_dcl6v"]
@@ -648,6 +649,7 @@ animations = [{
 size = Vector2(14, 20)
 
 [node name="Level1" type="Node2D"]
+script = ExtResource("1_gwu50")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_h828e")
