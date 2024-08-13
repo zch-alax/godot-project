@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cto282phlts1o"]
+[gd_scene load_steps=32 format=3 uid="uid://cto282phlts1o"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_8tuxc"]
 [ext_resource type="Texture2D" uid="uid://bbd8j22uicahl" path="res://assets/Palm Tree Island/Sprites/Background/Additional Sky.png" id="1_g4hh3"]
@@ -20,9 +20,12 @@
 [ext_resource type="Script" path="res://scripts/UI/exit_selection.gd" id="17_da3ia"]
 [ext_resource type="Script" path="res://scripts/UI/new_game_selection.gd" id="17_nx8yl"]
 [ext_resource type="Script" path="res://scripts/UI/continue_selection.gd" id="20_176x6"]
+[ext_resource type="AudioStream" uid="uid://djjh6t0y78o4t" path="res://assets/Gameplay/5. Collectibles/Collectibles_1.wav" id="20_b5057"]
 [ext_resource type="Script" path="res://scripts/UI/transition.gd" id="20_pqkjo"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="20_ww84j"]
+[ext_resource type="AudioStream" uid="uid://b7oh6f5eewc8y" path="res://assets/Gameplay/5. Collectibles/Collectibles_8.wav" id="21_5se3t"]
 [ext_resource type="Script" path="res://scripts/UI/main_menu_selection.gd" id="21_6wb83"]
+[ext_resource type="Script" path="res://scripts/UI/options_menu_selection.gd" id="26_c28p1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pukkr"]
 animations = [{
@@ -43,6 +46,33 @@ animations = [{
 "name": &"default",
 "speed": 10.0
 }]
+
+[sub_resource type="Animation" id="Animation_uk66f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_gf3hd"]
 resource_name = "fade_in"
@@ -70,33 +100,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
-}
-
-[sub_resource type="Animation" id="Animation_uk66f"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_d44pk"]
@@ -214,11 +217,13 @@ position = Vector2(0, 17)
 texture = ExtResource("8_jsmw6")
 centered = false
 
-[node name="MainMenu" type="CanvasLayer" parent="." node_paths=PackedStringArray("selection_container")]
+[node name="MainMenu" type="CanvasLayer" parent="." node_paths=PackedStringArray("selection_container", "enter_player", "selection_player")]
 process_mode = 3
 visible = false
 script = ExtResource("13_ol1rg")
 selection_container = NodePath("MainMenuPanel/MainMenuContainer/SelectionPanel/SelectionContainer")
+enter_player = NodePath("EnterPlayer")
+selection_player = NodePath("SelectionPlayer")
 
 [node name="MainMenuPanel" type="PanelContainer" parent="MainMenu"]
 anchors_preset = 8
@@ -284,11 +289,21 @@ size_flags_horizontal = 4
 text = "exit"
 script = ExtResource("17_da3ia")
 
-[node name="PauseMenu" type="CanvasLayer" parent="." node_paths=PackedStringArray("selection_container")]
+[node name="EnterPlayer" type="AudioStreamPlayer" parent="MainMenu"]
+stream = ExtResource("20_b5057")
+bus = &"SFX"
+
+[node name="SelectionPlayer" type="AudioStreamPlayer" parent="MainMenu"]
+stream = ExtResource("21_5se3t")
+bus = &"SFX"
+
+[node name="PauseMenu" type="CanvasLayer" parent="." node_paths=PackedStringArray("selection_container", "enter_player", "selection_player")]
 process_mode = 3
 visible = false
 script = ExtResource("13_ol1rg")
 selection_container = NodePath("PausePanel/PauseContainer/SelectionPanel/SelectionContainer")
+enter_player = NodePath("EnterPlayer")
+selection_player = NodePath("SelectionPlayer")
 
 [node name="ColorRect" type="ColorRect" parent="PauseMenu"]
 anchors_preset = 15
@@ -357,6 +372,14 @@ size_flags_horizontal = 4
 text = "main menu"
 script = ExtResource("21_6wb83")
 
+[node name="EnterPlayer" type="AudioStreamPlayer" parent="PauseMenu"]
+stream = ExtResource("20_b5057")
+bus = &"SFX"
+
+[node name="SelectionPlayer" type="AudioStreamPlayer" parent="PauseMenu"]
+stream = ExtResource("21_5se3t")
+bus = &"SFX"
+
 [node name="Transition" type="CanvasLayer" parent="."]
 process_mode = 3
 script = ExtResource("20_pqkjo")
@@ -381,4 +404,36 @@ levels_map = {
 "level_1": "res://scenes/levels/level_1.tscn"
 }
 
+[node name="OptionsMenu" type="CanvasLayer" parent="."]
+script = ExtResource("26_c28p1")
+
+[node name="PanelContainer" type="PanelContainer" parent="OptionsMenu"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme = ExtResource("13_836rw")
+
+[node name="MarginContainer" type="MarginContainer" parent="OptionsMenu/PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OptionsMenu/PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="OptionsMenu/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "sfx"
+
+[node name="Volume" type="HSlider" parent="OptionsMenu/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
 [connection signal="animation_finished" from="Transition/ColorRect/AnimationPlayer" to="Transition" method="_on_animation_player_animation_finished"]
+[connection signal="value_changed" from="OptionsMenu/PanelContainer/MarginContainer/VBoxContainer/Volume" to="OptionsMenu" method="_on_volume_value_changed"]

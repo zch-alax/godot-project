@@ -1,6 +1,8 @@
 extends CanvasLayer
 
 @export var selection_container: Node
+@export var enter_player: AudioStreamPlayer
+@export var selection_player: AudioStreamPlayer
 
 var selection_items: Array[Node]
 var selection_index: int:
@@ -23,9 +25,12 @@ func disable():
 func _input(event):
 	if event.is_action_pressed("ui_down"):
 		selection_index += 1
+		selection_player.play()
 	elif event.is_action_pressed("ui_up"):
 		selection_index -= 1
+		selection_player.play()
 	elif event.is_action_pressed("ui_accept"):
+		enter_player.play()
 		var selection = selection_items[selection_index]
 		if selection.has_method("select"):
 			selection.select()
