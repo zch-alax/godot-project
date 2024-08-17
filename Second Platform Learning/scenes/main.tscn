@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://cto282phlts1o"]
+[gd_scene load_steps=31 format=3 uid="uid://cto282phlts1o"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_8tuxc"]
 [ext_resource type="Texture2D" uid="uid://bbd8j22uicahl" path="res://assets/Palm Tree Island/Sprites/Background/Additional Sky.png" id="1_g4hh3"]
@@ -25,7 +25,6 @@
 [ext_resource type="Script" path="res://scripts/world.gd" id="20_ww84j"]
 [ext_resource type="AudioStream" uid="uid://b7oh6f5eewc8y" path="res://assets/Gameplay/5. Collectibles/Collectibles_8.wav" id="21_5se3t"]
 [ext_resource type="Script" path="res://scripts/UI/main_menu_selection.gd" id="21_6wb83"]
-[ext_resource type="Script" path="res://scripts/UI/options_menu_selection.gd" id="26_c28p1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pukkr"]
 animations = [{
@@ -404,36 +403,4 @@ levels_map = {
 "level_1": "res://scenes/levels/level_1.tscn"
 }
 
-[node name="OptionsMenu" type="CanvasLayer" parent="."]
-script = ExtResource("26_c28p1")
-
-[node name="PanelContainer" type="PanelContainer" parent="OptionsMenu"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-theme = ExtResource("13_836rw")
-
-[node name="MarginContainer" type="MarginContainer" parent="OptionsMenu/PanelContainer"]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="OptionsMenu/PanelContainer/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-
-[node name="Label" type="Label" parent="OptionsMenu/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-text = "sfx"
-
-[node name="Volume" type="HSlider" parent="OptionsMenu/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-
 [connection signal="animation_finished" from="Transition/ColorRect/AnimationPlayer" to="Transition" method="_on_animation_player_animation_finished"]
-[connection signal="value_changed" from="OptionsMenu/PanelContainer/MarginContainer/VBoxContainer/Volume" to="OptionsMenu" method="_on_volume_value_changed"]
