@@ -1,4 +1,4 @@
-[gd_scene load_steps=97 format=3 uid="uid://lbn00ng6k8ms"]
+[gd_scene load_steps=126 format=3 uid="uid://lbn00ng6k8ms"]
 
 [ext_resource type="AudioStream" uid="uid://bqorkiltr12ql" path="res://Assets/The 1 Ambient Noise.ogg" id="1_i3emq"]
 [ext_resource type="Script" path="res://the_1_scene.gd" id="1_x1r5m"]
@@ -490,6 +490,38 @@ fill_from = Vector2(0.5, 1)
 fill_to = Vector2(1, 0.3)
 metadata/_snap_enabled = true
 
+[sub_resource type="Curve" id="Curve_f4tjf"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_xupmw"]
+curve = SubResource("Curve_f4tjf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_35hx8"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1280, 720, 1)
+angle_min = -720.0
+angle_max = 720.0
+spread = 180.0
+initial_velocity_min = 15.0
+initial_velocity_max = 55.0
+gravity = Vector3(0, 0, 0)
+color = Color(0.517647, 0.517647, 0.517647, 1)
+alpha_curve = SubResource("CurveTexture_xupmw")
+
+[sub_resource type="Gradient" id="Gradient_lftlg"]
+offsets = PackedFloat32Array(0.582, 0.63, 0.703, 0.818)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.760784, 1, 1, 1, 0.321569, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_id0t5"]
+gradient = SubResource("Gradient_lftlg")
+width = 3
+height = 3
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.9, 0.1)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_ti2gn"]
 atlas = ExtResource("4_ueyq5")
 region = Rect2(4800, 0, 800, 1920)
@@ -535,6 +567,98 @@ height = 640
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.8, 0.2)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0hojt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_okiji"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pih21"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xcoqk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fmn6v"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jbhng"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hq3mh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nweu5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lv83g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ubrvp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tv5gs"]
+
+[sub_resource type="Gradient" id="Gradient_qp5wp"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_c1xc3"]
+gradient = SubResource("Gradient_qp5wp")
+width = 1
+height = 16
+
+[sub_resource type="Gradient" id="Gradient_x430e"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_osenu"]
+gradient = SubResource("Gradient_x430e")
+width = 1
+height = 16
+
+[sub_resource type="Gradient" id="Gradient_uytth"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ocl8d"]
+gradient = SubResource("Gradient_uytth")
+width = 2
+height = 20
+
+[sub_resource type="Gradient" id="Gradient_8hdax"]
+offsets = PackedFloat32Array(0, 0.71, 0.712)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rsav4"]
+gradient = SubResource("Gradient_8hdax")
+width = 8
+height = 10
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rgf8b"]
+texture = SubResource("GradientTexture2D_rsav4")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="Gradient" id="Gradient_hs6wr"]
+offsets = PackedFloat32Array(0, 0.71, 0.712)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_l2ujc"]
+gradient = SubResource("Gradient_hs6wr")
+width = 8
+height = 10
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wcoms"]
+texture = SubResource("GradientTexture2D_l2ujc")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="Theme" id="Theme_qscq4"]
+Button/styles/disabled = SubResource("StyleBoxEmpty_0hojt")
+Button/styles/disabled_mirrored = SubResource("StyleBoxEmpty_okiji")
+Button/styles/focus = SubResource("StyleBoxEmpty_pih21")
+Button/styles/hover = SubResource("StyleBoxEmpty_xcoqk")
+Button/styles/hover_mirrored = SubResource("StyleBoxEmpty_fmn6v")
+Button/styles/hover_pressed = SubResource("StyleBoxEmpty_jbhng")
+Button/styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_hq3mh")
+Button/styles/normal = SubResource("StyleBoxEmpty_nweu5")
+Button/styles/normal_mirrored = SubResource("StyleBoxEmpty_lv83g")
+Button/styles/pressed = SubResource("StyleBoxEmpty_ubrvp")
+Button/styles/pressed_mirrored = SubResource("StyleBoxEmpty_tv5gs")
+HSlider/icons/grabber = SubResource("GradientTexture2D_c1xc3")
+HSlider/icons/grabber_disabled = SubResource("GradientTexture2D_osenu")
+HSlider/icons/grabber_highlight = SubResource("GradientTexture2D_ocl8d")
+HSlider/styles/grabber_area = SubResource("StyleBoxTexture_rgf8b")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_wcoms")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a3ujb"]
 
@@ -891,6 +1015,16 @@ libraries = {
 "": SubResource("AnimationLibrary_bcg77")
 }
 
+[node name="ReferenceRect" type="ReferenceRect" parent="Main/VNStage"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+border_color = Color(0.568627, 0.388235, 1, 1)
+border_width = 5.0
+
 [node name="BackgroundAnchor" type="Control" parent="Main/VNStage"]
 layout_mode = 1
 anchors_preset = 8
@@ -944,9 +1078,22 @@ texture = SubResource("AtlasTexture_u85vj")
 
 [node name="TextureRect" type="TextureRect" parent="Main/VNStage/BackgroundAnchor/Background/SpriteAnchor2/SpriteBase"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 70.33
+offset_top = 1090.11
+offset_right = 739.33
+offset_bottom = 1758.11
 texture = SubResource("GradientTexture2D_s7t8d")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Main/VNStage/BackgroundAnchor/Background"]
+amount = 80
+process_material = SubResource("ParticleProcessMaterial_35hx8")
+texture = SubResource("GradientTexture2D_id0t5")
+lifetime = 3.0
+preprocess = 120.0
+randomness = 1.0
+interpolate = false
+fract_delta = false
+local_coords = true
 
 [node name="SpriteAnchor" type="Control" parent="Main/VNStage"]
 visible = false
@@ -1004,11 +1151,15 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="PointLight2D" type="PointLight2D" parent="Main/VNStage/LightAnchor"]
+blend_mode = 2
+range_layer_min = -2
+range_layer_max = -2
 texture = SubResource("GradientTexture2D_0p2y1")
 
 [node name="ParallaxRef" type="Marker2D" parent="Main/VNStage/LightAnchor/PointLight2D"]
 
 [node name="ColorRect" type="ColorRect" parent="Main"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1032,8 +1183,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_qscq4")
 
 [node name="DialogueLabelContainer" type="PanelContainer" parent="UI/Control"]
+visible = false
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0

@@ -234,6 +234,7 @@ func _ready() -> void:
 	face_current = faces["scawy"]
 	face_current.modulate.a = 1.0
 	
+	# 显示输入光标
 	user_name_input.grab_focus()
 	
 	# print("-".repeat(80))
