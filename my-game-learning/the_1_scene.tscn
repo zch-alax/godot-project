@@ -971,7 +971,7 @@ panel_config_cc_2 = NodePath("UI/Control/BottomControl/Margin/HBoxContainer/Clos
 spinbox_font_size = NodePath("UI/Control/BottomControl/Margin/HBoxContainer/CloseCaption/Control/PanelContainer/MarginContainer/VBoxContainer/FontSize/SpinBox")
 spinbox_letter_spacing = NodePath("UI/Control/BottomControl/Margin/HBoxContainer/CloseCaption/Control/PanelContainer/MarginContainer/VBoxContainer/LetterSpacing/SpinBox")
 spinbox_bg_opacity = NodePath("UI/Control/BottomControl/Margin/HBoxContainer/CloseCaption/Control/PanelContainer/MarginContainer/VBoxContainer/BackgroundOpacity/SpinBox")
-dialogue_file = "res://Assets/The 1000 Words Writing.dlg"
+dialogue_file = "res://Assets/Words_zh.dlg"
 actor_label = NodePath("UI/Control/DialogueLabelContainer/HBoxContainer/ActorLabel")
 dialogue_label_container = NodePath("UI/Control/DialogueLabelContainer/HBoxContainer")
 caller_node_anim = NodePath("Main/VNStage/Anim")
@@ -1159,7 +1159,6 @@ texture = SubResource("GradientTexture2D_0p2y1")
 [node name="ParallaxRef" type="Marker2D" parent="Main/VNStage/LightAnchor/PointLight2D"]
 
 [node name="ColorRect" type="ColorRect" parent="Main"]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
