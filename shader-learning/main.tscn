@@ -1,13 +1,21 @@
-[gd_scene load_steps=8 format=4 uid="uid://djcgv7omyjpse"]
+[gd_scene load_steps=10 format=4 uid="uid://djcgv7omyjpse"]
 
 [ext_resource type="Texture2D" uid="uid://yljo6u562wsw" path="res://assets/BG Image.png" id="1_alucl"]
 [ext_resource type="Shader" path="res://water_shader.gdshader" id="2_65kvs"]
 [ext_resource type="Texture2D" uid="uid://bsnv2jw5esll3" path="res://assets/Additional Water.png" id="2_y6cs8"]
 [ext_resource type="Texture2D" uid="uid://b3jvauvbs6p6l" path="res://assets/Terrain (32x32).png" id="3_bm6xy"]
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_n3jwv"]
+frequency = 0.03
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_m64qy"]
+seamless = true
+noise = SubResource("FastNoiseLite_n3jwv")
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dcmfo"]
 shader = ExtResource("2_65kvs")
-shader_parameter/water_color = null
+shader_parameter/water_color = Color(0.157348, 0.220352, 0.627407, 1)
+shader_parameter/wave_noise = SubResource("NoiseTexture2D_m64qy")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ywwbp"]
 texture = ExtResource("3_bm6xy")
