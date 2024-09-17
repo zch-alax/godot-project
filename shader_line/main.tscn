@@ -1,0 +1,91 @@
+[gd_scene load_steps=13 format=3 uid="uid://cn3xvyk60o2i4"]
+
+[ext_resource type="Shader" path="res://shader/sprite_outline.gdshader" id="1_dk68a"]
+[ext_resource type="Texture2D" uid="uid://dhheguf65nf4h" path="res://assets/Blue_witch/B_witch_idle.png" id="1_qfub8"]
+
+[sub_resource type="Environment" id="Environment_60k37"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 2.0
+glow_strength = 1.15
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bjnr5"]
+shader = ExtResource("1_dk68a")
+shader_parameter/outline_width = 1.0
+shader_parameter/outline_color = Color(2, 0.385, 0.399, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xc53h"]
+atlas = ExtResource("1_qfub8")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8313q"]
+atlas = ExtResource("1_qfub8")
+region = Rect2(0, 48, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rbxej"]
+atlas = ExtResource("1_qfub8")
+region = Rect2(0, 96, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7pq18"]
+atlas = ExtResource("1_qfub8")
+region = Rect2(0, 144, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uacax"]
+atlas = ExtResource("1_qfub8")
+region = Rect2(0, 192, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n0b51"]
+atlas = ExtResource("1_qfub8")
+region = Rect2(0, 240, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8uold"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xc53h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8313q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rbxej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7pq18")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uacax")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n0b51")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_chvt7"]
+size = Vector2(16, 36)
+
+[node name="Main" type="Node2D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_60k37")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(160, 90)
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+material = SubResource("ShaderMaterial_bjnr5")
+sprite_frames = SubResource("SpriteFrames_8uold")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.700954
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_chvt7")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(5, 5)
