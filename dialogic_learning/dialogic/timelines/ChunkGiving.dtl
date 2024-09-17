@@ -1,0 +1,20 @@
+join Chunk center [animation="Instant In"]
+Chunk: Hello! Guy!
+Chunk: I'm Chunk,nice to meet you!
+leave Chunk [animation="Instant Out"]
+join You center [animation="Instant In"]
+You: I'm Nick,nice to meet you too!
+leave You [animation="Instant Out"]
+join Chunk center [animation="Instant In"]
+Chunk: I have an apple,do you like it?
+leave Chunk [animation="Instant Out"]
+join You center [animation="Instant In"]
+- Yes,I like apple.
+	leave You [animation="Instant Out"]
+	join Chunk center [animation="Instant In"]
+	Chunk: I give you one apple.
+	[signal arg="get_apple"]
+- No,I don't like it.
+	leave You [animation="Instant Out"]
+	join Chunk center [animation="Instant In"]
+	Chunk: uh...ok~
