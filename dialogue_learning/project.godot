@@ -20,15 +20,8 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
 
-directories/dch_directory={
-"alan": "res://dialogic/characters/alan.dch",
-"guard": "res://dialogic/characters/guard.dch",
-"nick": "res://dialogic/characters/nick.dch",
-"unknow": "res://dialogic/characters/unknow.dch"
-}
-directories/dtl_directory={
-"my_timeline": "res://dialogic/timelines/my_timeline.dtl"
-}
+directories/dch_directory={}
+directories/dtl_directory={}
 variables={}
 layout/style_list=["res://dialogic/styles/my_style.tres"]
 layout/default_style="res://dialogic/styles/my_style.tres"

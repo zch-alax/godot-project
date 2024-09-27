@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://ca2gw7gwbn43h"]
+
+[ext_resource type="Script" path="res://lin.gd" id="1_yhpyo"]
+[ext_resource type="Texture2D" uid="uid://n5bjof1vpenm" path="res://assets/knight.png" id="2_ej3hp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ig3b2"]
+atlas = ExtResource("2_ej3hp")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cpitx"]
+atlas = ExtResource("2_ej3hp")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1l2md"]
+atlas = ExtResource("2_ej3hp")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nwffp"]
+atlas = ExtResource("2_ej3hp")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5ko0g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ig3b2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cpitx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1l2md")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nwffp")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 7.0
+}]
+
+[node name="Lin" type="Node2D"]
+script = ExtResource("1_yhpyo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_5ko0g")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.359284

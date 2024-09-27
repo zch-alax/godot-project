@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DialogicStyle" load_steps=4 format=3 uid="uid://bx1a0tqqui0el"]
+
+[ext_resource type="Script" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="1_1iwhf"]
+[ext_resource type="PackedScene" uid="uid://cqpb3ie51rwl5" path="res://dialogic/styles/CustomNewFile/custom_new_file.tscn" id="1_m6sk4"]
+[ext_resource type="Script" path="res://addons/dialogic/Resources/dialogic_style.gd" id="10_6o1l7"]
+
+[resource]
+script = ExtResource("10_6o1l7")
+name = "New_File"
+base_scene = ExtResource("1_m6sk4")
+base_overrides = {}
+layers = Array[ExtResource("1_1iwhf")]([])
+metadata/_latest_layer = -1

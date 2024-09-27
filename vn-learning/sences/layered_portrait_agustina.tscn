@@ -1,0 +1,88 @@
+[gd_scene load_steps=18 format=3 uid="uid://bnfuknavfq46g"]
+
+[ext_resource type="Script" path="res://sences/custom_layered_portrait.gd" id="1_uubi5"]
+[ext_resource type="Texture2D" uid="uid://dd6ew73ynb0ep" path="res://assets/base.png" id="2_2lu4o"]
+[ext_resource type="Texture2D" uid="uid://c4f732occisr6" path="res://assets/eyebrows_normal.png" id="3_yvumc"]
+[ext_resource type="Texture2D" uid="uid://bry20lokejox6" path="res://assets/eyebrows_inwards.png" id="4_15a2v"]
+[ext_resource type="Texture2D" uid="uid://bogajfbjf2mne" path="res://assets/eyebrows_up.png" id="5_4ee78"]
+[ext_resource type="Texture2D" uid="uid://6sqpy3b4jgjx" path="res://assets/eyes_open.png" id="6_6rl0x"]
+[ext_resource type="Texture2D" uid="uid://7mtl6sjx514k" path="res://assets/eyes_n_n.png" id="7_lo5iw"]
+[ext_resource type="Texture2D" uid="uid://4ftqhius6xbt" path="res://assets/eyes_wuyu.png" id="8_ifj82"]
+[ext_resource type="Texture2D" uid="uid://dw1tovo05886e" path="res://assets/mouth_wah.png" id="9_gnwjr"]
+[ext_resource type="Texture2D" uid="uid://gha25wtjkb6y" path="res://assets/eyes_cry.png" id="9_srdqg"]
+[ext_resource type="Texture2D" uid="uid://2i4mlda7h53p" path="res://assets/mouth_happy.png" id="10_ypul0"]
+[ext_resource type="Texture2D" uid="uid://dxuqfx1uk7pny" path="res://assets/mouth_close.png" id="11_qexyy"]
+[ext_resource type="Texture2D" uid="uid://bxecnq0qtx73i" path="res://assets/mouth_smile.png" id="12_x7u3d"]
+[ext_resource type="Texture2D" uid="uid://ctbntdx11fc8f" path="res://assets/cloth1.png" id="13_eam8s"]
+[ext_resource type="Texture2D" uid="uid://hjmps2inwl5v" path="res://assets/mouth_cry.png" id="14_a8hqm"]
+[ext_resource type="Texture2D" uid="uid://cvcekufyvuj41" path="res://assets/cloth2.png" id="14_lw8dk"]
+[ext_resource type="Texture2D" uid="uid://u6pl6u2umuf2" path="res://assets/glasses.png" id="15_qmx2a"]
+
+[node name="LayeredPortrait" type="CanvasGroup"]
+script = ExtResource("1_uubi5")
+
+[node name="Base" type="Sprite2D" parent="."]
+texture = ExtResource("2_2lu4o")
+
+[node name="Eyebrows" type="Node2D" parent="."]
+
+[node name="Normal" type="Sprite2D" parent="Eyebrows"]
+texture = ExtResource("3_yvumc")
+
+[node name="Inwards" type="Sprite2D" parent="Eyebrows"]
+visible = false
+texture = ExtResource("4_15a2v")
+
+[node name="Up" type="Sprite2D" parent="Eyebrows"]
+visible = false
+texture = ExtResource("5_4ee78")
+
+[node name="Eyes" type="Node2D" parent="."]
+
+[node name="Open" type="Sprite2D" parent="Eyes"]
+texture = ExtResource("6_6rl0x")
+
+[node name="Laugh" type="Sprite2D" parent="Eyes"]
+visible = false
+texture = ExtResource("7_lo5iw")
+
+[node name="Wuyu" type="Sprite2D" parent="Eyes"]
+visible = false
+texture = ExtResource("8_ifj82")
+
+[node name="Cry" type="Sprite2D" parent="Eyes"]
+visible = false
+texture = ExtResource("9_srdqg")
+
+[node name="Mouth" type="Node2D" parent="."]
+
+[node name="Wah" type="Sprite2D" parent="Mouth"]
+visible = false
+texture = ExtResource("9_gnwjr")
+
+[node name="Happy" type="Sprite2D" parent="Mouth"]
+visible = false
+texture = ExtResource("10_ypul0")
+
+[node name="Close" type="Sprite2D" parent="Mouth"]
+visible = false
+texture = ExtResource("11_qexyy")
+
+[node name="Smile" type="Sprite2D" parent="Mouth"]
+texture = ExtResource("12_x7u3d")
+
+[node name="Cry" type="Sprite2D" parent="Mouth"]
+visible = false
+texture = ExtResource("14_a8hqm")
+
+[node name="Clothes" type="Node2D" parent="."]
+
+[node name="Cloth1" type="Sprite2D" parent="Clothes"]
+visible = false
+texture = ExtResource("13_eam8s")
+
+[node name="Cloth2" type="Sprite2D" parent="Clothes"]
+texture = ExtResource("14_lw8dk")
+
+[node name="Glasses" type="Sprite2D" parent="."]
+texture = ExtResource("15_qmx2a")

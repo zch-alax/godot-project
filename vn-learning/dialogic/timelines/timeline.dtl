@@ -1,0 +1,9 @@
+join agustina center
+agustina: 你好
+update agustina [extra_data="set Eyes/Cry, set Eyebrows/Inwards, set Mouth/Cry"]
+agustina: 我不小心迷路了
+leave agustina
+join lin center
+lin: hello
+update lin (idle)
+idle
