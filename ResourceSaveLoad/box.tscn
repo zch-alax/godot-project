@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://3a3ptnbiyctd"]
+
+[ext_resource type="Texture2D" uid="uid://c0xw3cn7nmui7" path="res://Sprites/Idle.png" id="1_xpbqm"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kipqc"]
+friction = 0.3
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ql1y"]
+resource_local_to_scene = true
+
+[node name="RigidBody2D" type="RigidBody2D" groups=["Box"]]
+physics_interpolation_mode = 1
+physics_material_override = SubResource("PhysicsMaterial_kipqc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4ql1y")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_xpbqm")
