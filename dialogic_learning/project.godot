@@ -21,13 +21,8 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
 
-directories/dch_directory={
-"Chunk": "res://dialogic/character/Chunk.dch",
-"You": "res://dialogic/character/You.dch"
-}
-directories/dtl_directory={
-"ChunkGiving": "res://dialogic/timelines/ChunkGiving.dtl"
-}
+directories/dch_directory={}
+directories/dtl_directory={}
 layout/style_list=["res://dialogic/mystyle.tres"]
 layout/default_style="res://dialogic/mystyle.tres"
 variables={}

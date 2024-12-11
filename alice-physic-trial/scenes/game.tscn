@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://3gjuu6rfq1ll"]
+
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_2vm84"]
+[ext_resource type="PackedScene" uid="uid://c0oscn1p3lae5" path="res://scenes/main_menu.tscn" id="1_x1go1"]
+[ext_resource type="Script" path="res://scripts/chapters.gd" id="3_dh2dj"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_2vm84")
+
+[node name="BackGround" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="BackGround"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MainMenu" parent="." instance=ExtResource("1_x1go1")]
+
+[node name="Chapters" type="Node2D" parent="."]
+script = ExtResource("3_dh2dj")
+chapters = {
+"Chapter_1": "res://scenes/chapter_1.tscn"
+}
