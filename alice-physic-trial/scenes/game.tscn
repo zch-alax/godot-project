@@ -18,6 +18,9 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="MainMenu" parent="." instance=ExtResource("1_x1go1")]
+visible = false
+
+[node name="HUB" type="CanvasLayer" parent="."]
 
 [node name="Chapters" type="Node2D" parent="."]
 script = ExtResource("3_dh2dj")

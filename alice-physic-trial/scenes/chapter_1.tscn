@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://lv2308oqqvpu"]
+[gd_scene load_steps=2 format=3 uid="uid://lv2308oqqvpu"]
+
+[ext_resource type="Script" path="res://scripts/chapter_1.gd" id="1_k1ux0"]
 
 [node name="Chapter1" type="Node2D"]
+script = ExtResource("1_k1ux0")

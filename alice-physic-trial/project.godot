@@ -22,7 +22,9 @@ Main="*res://scripts/main.gd"
 
 [dialogic]
 
-directories/dch_directory={}
+directories/dch_directory={
+"Alice": "res://dialogic/characters/Alice.dch"
+}
 directories/dtl_directory={
 "Chapter1": "res://dialogic/timeline/Chapter1.dtl"
 }
