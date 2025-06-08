@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cxn8fxpjq6utx"]
-
-[ext_resource type="SpriteFrames" uid="uid://cv72lxydw6lin" path="res://resources/Phoenix_sprite_frames.tres" id="1_agfs1"]
-
-[node name="Character" type="Node2D"]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = ExtResource("1_agfs1")
-animation = &"idle"

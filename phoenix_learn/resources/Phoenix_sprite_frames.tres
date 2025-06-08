@@ -22,7 +22,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("2_s74sd")
 }, {
-"duration": 1.0,
+"duration": 20.0,
 "texture": ExtResource("1_kf0ah")
 }],
 "loop": true,

@@ -1,0 +1,92 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbcklmqo03grh"]
+
+[ext_resource type="Theme" uid="uid://ch0gkw2w5j7dr" path="res://resources/new_theme.tres" id="1_xh3aw"]
+[ext_resource type="Script" uid="uid://wn2kisrh2c8w" path="res://scripts/dialog_ui.gd" id="2_yjvli"]
+[ext_resource type="Script" uid="uid://belxjns8q8eso" path="res://scripts/text_blip_sound.gd" id="3_edwrk"]
+
+[node name="DialogUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_xh3aw")
+script = ExtResource("2_yjvli")
+
+[node name="SentencePauseTimer" type="Timer" parent="."]
+wait_time = 0.35
+one_shot = true
+
+[node name="TextBlipTimer" type="Timer" parent="."]
+wait_time = 0.12
+
+[node name="TextBlipSound" type="AudioStreamPlayer" parent="."]
+script = ExtResource("3_edwrk")
+
+[node name="DialogBox" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="DialogLine" type="RichTextLabel" parent="DialogBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "This is a line of dialog."
+scroll_active = false
+
+[node name="SpeakerBox" type="Control" parent="."]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -190.0
+offset_right = 200.0
+offset_bottom = -150.0
+grow_vertical = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="SpeakerBox"]
+color = Color(0.462745, 0.635294, 1, 0.584314)
+polygon = PackedVector2Array(0, 0, 170, 0, 200, 40, 0, 40)
+
+[node name="SpeakerName" type="Label" parent="SpeakerBox"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -17.5
+offset_right = 36.0
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "Name"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="Control"]
+position = Vector2(-8, -5)
+polygon = PackedVector2Array(0, 0, 30, 15, 0, 30)
+
+[connection signal="timeout" from="SentencePauseTimer" to="." method="_on_sentence_pause_timer_timeout"]
+[connection signal="timeout" from="TextBlipTimer" to="." method="_on_text_blip_timer_timeout"]
