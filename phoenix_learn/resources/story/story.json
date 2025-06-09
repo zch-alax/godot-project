@@ -4,15 +4,22 @@
 	{"speaker": "Phoenix", "text": "Roger that.You turn, Apollo.Make a choice."},
 	{"choices": 
 		[
-			{"text": "First Choice."},
-			{"text": "Second Choice."}
+			{"text": "First Choice.", "goto": "first_choice"},
+			{"text": "Second Choice.", "goto": "second_choice"}
 		]
 	},
+	
 	{"anchor": "first_choice"},
+	{"speaker": "Phoenix", "text": "Ah, it appears you have chosen the first choice."},
+	{"speaker": "Trucy", "text": "Intersting!"},
+	{"goto": "end"},
 	
 	{"anchor": "second_choice"},
+	{"speaker": "Phoenix", "text": "You went with the second choice, huh!"},
+	{"speaker": "Trucy", "text": "Very good!"},
+	{"goto": "end"},
 	
-	
+	{"anchor": "end"},
 	{"speaker": "Apollo", "text": "Did...Did any things happen?"},
 	{"speaker": "Trucy", "text": "I don't think so...Maybe you didn't do it right."}
 ]

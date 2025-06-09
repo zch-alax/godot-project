@@ -33,6 +33,7 @@ func get_anchor_position(anchor: String):
 	
 func process_current_line():
 	var line = dialog_lines[dialog_index]
+	
 	if line.has("goto"):
 		dialog_index = get_anchor_position(line["goto"])
 		process_current_line()
@@ -43,9 +44,12 @@ func process_current_line():
 		process_current_line()
 		return
 	
-	var character_name = Character.get_enum_from_string(line["speaker"])
-	dialog_ui.change_line(character_name, line["text"])
-	character_sprite.change_character(character_name)
+	if line.has("choices"):
+		pass
+	else:
+		var character_name = Character.get_enum_from_string(line["speaker"])
+		dialog_ui.change_line(character_name, line["text"])
+		character_sprite.change_character(character_name)
 
 func load_dialog(file_path):
 	# check if the file exists
