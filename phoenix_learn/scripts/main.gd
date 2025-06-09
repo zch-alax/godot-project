@@ -1,13 +1,6 @@
 extends Node2D
 
-const dialog_lines: Array[String] = [
-	"Phoenix:Hi!My name is Phoenix Wright, nice to meet you.",
-	"Trucy:Hey there! I am Trucy.",
-	"Phoenix:Hello, it's nice to meet you too.What are we learn today?",
-	"Phoenix:Today we learning how to build a dialog sysytem.",
-	"Phoenix:It might seem diffcult at first.",
-	"Trucy:Awsome!"
-]
+var dialog_lines: Array = []
 
 var dialog_index: int = 0
 
@@ -17,6 +10,7 @@ var dialog_index: int = 0
 
 func _ready() -> void:
 	dialog_ui.animation_done.connect(_on_text_animation_done)
+	dialog_lines = load_dialog("res://resources/story/story.json")
 	dialog_index = 0
 	process_current_line()
 	
@@ -30,20 +24,43 @@ func _input(event: InputEvent) -> void:
 				next_sentence_sound.play()
 				process_current_line()
 
-func parse_line(line: String):
-	var line_info = line.split(":")
-	assert(len(line_info) >= 2)
-	return {
-		"speaker_name": line_info[0],
-		"dialog_line": line_info[1]
-	}
+func get_anchor_position(anchor: String):
+	for i in range(dialog_lines.size()):
+		if dialog_lines[i].has("anchor") and dialog_lines[i]["anchor"] == anchor:
+			return i
+	printerr("Error:could not find anchor:" + anchor)
+	return 0
 	
 func process_current_line():
 	var line = dialog_lines[dialog_index]
-	var line_info = parse_line(line)
-	var character_name = Character.get_enum_from_string(line_info["speaker_name"])
-	dialog_ui.change_line(character_name, line_info["dialog_line"])
+	if line.has("goto"):
+		dialog_index = get_anchor_position(line["goto"])
+		process_current_line()
+		return
+	
+	if line.has("anchor"):
+		dialog_index += 1
+		process_current_line()
+		return
+	
+	var character_name = Character.get_enum_from_string(line["speaker"])
+	dialog_ui.change_line(character_name, line["text"])
 	character_sprite.change_character(character_name)
+
+func load_dialog(file_path):
+	# check if the file exists
+	if not FileAccess.file_exists(file_path):
+		printerr("Error: File does not exists: " + file_path)
+		return null
+	var file = FileAccess.open(file_path, FileAccess.READ)
+	if file == null:
+		printerr("Error: Failed to open file:" + file_path)
+		return null
+	var content = file.get_as_text();
+	var json_content = JSON.parse_string(content)
+	if json_content == null:
+		printerr("Error: Failed to parse JSON from file:" + file_path)
+	return json_content
 
 func _on_text_animation_done():
 	character_sprite.play_idle_animation()

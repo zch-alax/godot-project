@@ -3,7 +3,7 @@ extends Control
 signal animation_done
 
 const ANIMATION_SPEED := 20
-const NO_SOUND_CHARS := [".", "!", "?"]
+const NO_SOUND_CHARS := [".", ",", "!", "?"]
 
 var animate_text := true
 var current_visible_characters := 0
