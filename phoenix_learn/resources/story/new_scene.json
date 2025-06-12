@@ -1,0 +1,10 @@
+[
+	{"location": "office", "music": "office_theme"},
+	{"speaker": "Apollo", "text": "Are you sure you want to do this, Phoenix?"},
+	{"speaker": "Phoenix", "text": "Do I want to do this?"},
+	{"speaker": "Apollo", "text": "I just don't think it's a good idea...", "show_character": "Phoenix", "expression": "laughing"},
+	{"speaker": "Phoenix", "text": "Trust me.I know what I'm doing."},
+	{"speaker": "Trucy", "text": "Don't worry Apollo, he's done this a million times!"},
+	{"speaker": "Apollo", "text": "If you say so..."},
+	{"next_scene": "second_scene"}
+]

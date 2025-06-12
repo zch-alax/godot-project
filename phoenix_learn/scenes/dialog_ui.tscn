@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dbcklmqo03grh"]
+[gd_scene load_steps=5 format=3 uid="uid://dbcklmqo03grh"]
 
 [ext_resource type="Theme" uid="uid://ch0gkw2w5j7dr" path="res://resources/new_theme.tres" id="1_xh3aw"]
 [ext_resource type="Script" uid="uid://wn2kisrh2c8w" path="res://scripts/dialog_ui.gd" id="2_yjvli"]
 [ext_resource type="Script" uid="uid://belxjns8q8eso" path="res://scripts/text_blip_sound.gd" id="3_edwrk"]
+[ext_resource type="PackedScene" uid="uid://diawh4ocyylhv" path="res://scenes/player_choice.tscn" id="4_avaca"]
 
 [node name="DialogUI" type="Control"]
 layout_mode = 3
@@ -23,6 +24,23 @@ wait_time = 0.12
 
 [node name="TextBlipSound" type="AudioStreamPlayer" parent="."]
 script = ExtResource("3_edwrk")
+
+[node name="ChoicesContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ChoiceList" type="VBoxContainer" parent="ChoicesContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Button" parent="ChoicesContainer/ChoiceList" instance=ExtResource("4_avaca")]
+visible = false
+layout_mode = 2
 
 [node name="DialogBox" type="PanelContainer" parent="."]
 custom_minimum_size = Vector2(0, 150)

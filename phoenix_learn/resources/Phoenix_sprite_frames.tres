@@ -1,14 +1,62 @@
-[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://cv72lxydw6lin"]
+[gd_resource type="SpriteFrames" load_steps=15 format=3 uid="uid://cv72lxydw6lin"]
 
 [ext_resource type="Texture2D" uid="uid://cr6opgd5o68n7" path="res://assets/sprites/phoenix/idle/frame_0_delay-3.5s.png" id="1_kf0ah"]
+[ext_resource type="Texture2D" uid="uid://8600f2wg7k8o" path="res://assets/sprites/phoenix/confident-idle/frame_0.png" id="1_r5m10"]
+[ext_resource type="Texture2D" uid="uid://jok0dgqcfrrx" path="res://assets/sprites/phoenix/confident-idle/frame_1.png" id="2_c6gb2"]
 [ext_resource type="Texture2D" uid="uid://bunn8vs6fc25c" path="res://assets/sprites/phoenix/idle/frame_1_delay-0.1s.png" id="2_s74sd"]
+[ext_resource type="Texture2D" uid="uid://3qoghtbsfmuj" path="res://assets/sprites/phoenix/confident-idle/frame_2.png" id="3_svaaf"]
 [ext_resource type="Texture2D" uid="uid://dlpda56vaymje" path="res://assets/sprites/phoenix/idle/frame_2_delay-0.2s.png" id="3_wv1fw"]
+[ext_resource type="Texture2D" uid="uid://byivfdid2phwu" path="res://assets/sprites/phoenix/confident-talking/frame_0.png" id="4_rjurw"]
 [ext_resource type="Texture2D" uid="uid://bt2ek2twgsrbe" path="res://assets/sprites/phoenix/talking/frame_0_delay-0.2s.png" id="4_s2c8j"]
+[ext_resource type="Texture2D" uid="uid://7skqklf2cjfw" path="res://assets/sprites/phoenix/confident-talking/frame_1.png" id="5_5tjlj"]
 [ext_resource type="Texture2D" uid="uid://c2hiyf4uirpcp" path="res://assets/sprites/phoenix/talking/frame_1_delay-0.2s.png" id="5_vqh3f"]
 [ext_resource type="Texture2D" uid="uid://c5p5duu6demb8" path="res://assets/sprites/phoenix/talking/frame_2_delay-0.2s.png" id="6_bamgn"]
+[ext_resource type="Texture2D" uid="uid://ddu77n3gmuqpa" path="res://assets/sprites/phoenix/confident-talking/frame_2.png" id="6_gb1s7"]
+[ext_resource type="Texture2D" uid="uid://0l3swbpk2hvv" path="res://assets/sprites/phoenix/laugh-talking/frame_00.png" id="10_jnwi3"]
+[ext_resource type="Texture2D" uid="uid://wfui6fmhdm6g" path="res://assets/sprites/phoenix/laugh-talking/frame_01.png" id="11_6tx3f"]
 
 [resource]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_r5m10")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_c6gb2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_svaaf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_c6gb2")
+}, {
+"duration": 20.0,
+"texture": ExtResource("1_r5m10")
+}],
+"loop": true,
+"name": &"confident-idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_rjurw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_5tjlj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_gb1s7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_5tjlj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_rjurw")
+}],
+"loop": true,
+"name": &"confident-talking",
+"speed": 7.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_kf0ah")
@@ -28,6 +76,17 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_jnwi3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_6tx3f")
+}],
+"loop": true,
+"name": &"laugh-talking",
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
