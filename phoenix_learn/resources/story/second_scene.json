@@ -1,0 +1,37 @@
+[
+	{"location": "office", "music": "office_theme"},
+	{"speaker": "Phoenix", "text": "Today we'll be demonstrarting some new visual novel features."},
+	{"speaker": "Trucy", "text": "I'm excited to show off our expression!", "expression": "happy"},
+	{"speaker": "Phoenix", "text": "Let's me show you how expression work.", "expression": "confident"},
+	{"speaker": "Phoenix", "text": "I can change my expression mid-conversation...", "expression": "confident"},
+	{"speaker": "Phoenix", "text": "...and even laugh about it!", "expression": "laugh"},
+	{"speaker": "Trucy", "text": "Let me try too!"},
+	{"speaker": "Trucy", "text": "I can look confident...", "expression": "confident"},
+	{"speaker": "Trucy", "text": "Or happy about something...", "expression": "happy"},
+	{"speaker": "Trucy", "text": "Or look completely mormal."},
+	{"speaker": "Apollo", "text": "Watch as Phoenix reacts to what I'm saying.", "show_character": "Phoenix", "expression": "confident"},
+	{"speaker": "Apollo", "text": "And now Trucy will react differently.", "show_character": "Trucy", "expression": "happy"},
+	{"speaker": "Phoenix", "text": "Let's give the player choice now."},
+	{"speaker": "Trucy", "text": "Good Idea!", "expression": "happy"},
+	{"choices":
+		[
+			{"text": "Ask about court cases", "goto": "court_cases"},
+			{"text": "Ask about magic tricks", "goto": "magic_tricks"}
+		]
+	},
+	{"anchor": "court_cases"},
+	{"speaker": "Apollo", "text": "Tell me about your recent court cases, Phoenix.", "show_character": "Phoenix"},
+	{"speaker":"Phoenix", "text": "Well, I just wrapped up a rather complicated muder trial."},
+	{"speaker": "Phoenix", "text": "The defendant was actually innocent, as I suspected.", "expression": "confident"},
+	{"goto": "ending"},
+	{"anchor": "magic_tricks"},
+	{"speaker": "Apollo", "text": "Trucy, can you show us a new magic tricks?", "show_character": "Trucy", "expression": "happy"},
+	{"speaker": "Trucy", "text": "I thought you'd never ask!", "expression": "confident"},
+	{"speaker": "Trucy", "text": "For my next trick, I'll need a volunteer...", "expression": "happy"},
+	{"speaker": "Phoenix", "text": "Why are you both looking at me?", "expression": "laugh"},
+	{"goto": "ending"},
+	{"anchor": "ending"},
+	{"speaker": "Phoenix", "text": "I think that covers all the new features."},
+	{"speaker": "Trucy", "text": "Don't forget the next scene command!", "expression": "happy"},
+	{"next_scene": "", "transition": "fade"}
+]

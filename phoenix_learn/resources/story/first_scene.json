@@ -1,4 +1,5 @@
 [
+	{"location": "courtroom", "music": "courtroom_theme"},
 	{"speaker": "Phoenix", "text": "Let's create a dialog with Player Choices."},
 	{"speaker": "Trucy", "text": "That's a great idea! Give a choice to Apollo!"},
 	{"speaker": "Phoenix", "text": "Roger that.You turn, Apollo.Make a choice."},
@@ -8,18 +9,16 @@
 			{"text": "Second Choice.", "goto": "second_choice"}
 		]
 	},
-	
 	{"anchor": "first_choice"},
 	{"speaker": "Phoenix", "text": "Ah, it appears you have chosen the first choice."},
 	{"speaker": "Trucy", "text": "Intersting!"},
 	{"goto": "end"},
-	
 	{"anchor": "second_choice"},
 	{"speaker": "Phoenix", "text": "You went with the second choice, huh!"},
 	{"speaker": "Trucy", "text": "Very good!"},
 	{"goto": "end"},
-	
 	{"anchor": "end"},
 	{"speaker": "Apollo", "text": "Did...Did any things happen?"},
-	{"speaker": "Trucy", "text": "I don't think so...Maybe you didn't do it right."}
+	{"speaker": "Trucy", "text": "I don't think so...Maybe you didn't do it right."},
+	{"next_scene": "second_scene", "transition": "fade"}
 ]

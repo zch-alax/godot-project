@@ -1,9 +1,11 @@
 extends Node2D
 
+var transition_effect: String = "fade"
+var dialog_file := "res://resources/story/first_scene.json"
 var dialog_lines: Array = []
-
 var dialog_index: int = 0
 
+@onready var background: TextureRect = %Background
 @onready var character_sprite: Node2D = %CharacterSprite
 @onready var dialog_ui: Control = %DialogUI
 @onready var next_sentence_sound: AudioStreamPlayer = $NextSentenceSound
@@ -11,7 +13,9 @@ var dialog_index: int = 0
 func _ready() -> void:
 	dialog_ui.animation_done.connect(_on_text_animation_done)
 	dialog_ui.choice_selected.connect(_on_choice_selected)
-	dialog_lines = load_dialog("res://resources/story/story.json")
+	SceneManager.transition_out_completed.connect(_on_transition_out_completed)
+	SceneManager.transition_in_completed.connect(_on_transition_in_completed)
+	dialog_lines = load_dialog(dialog_file)
 	dialog_index = 0
 	process_current_line()
 	
@@ -35,7 +39,17 @@ func get_anchor_position(anchor: String):
 	return 0
 	
 func process_current_line():
+	if dialog_index >= dialog_lines.size() or dialog_index < 0:
+		printerr("Error:dialog index out of bounds: ", dialog_index)
+		return
 	var line = dialog_lines[dialog_index]
+	
+	if line.has("location"):
+		var background_file = "res://assets/images/" + line["location"] + ".png"
+		background.texture = load(background_file)
+		dialog_index += 1
+		process_current_line()
+		return
 	
 	if line.has("goto"):
 		dialog_index = get_anchor_position(line["goto"])
@@ -46,14 +60,30 @@ func process_current_line():
 		dialog_index += 1
 		process_current_line()
 		return
+		
+	if line.has("show_character"):
+		var character_name = Character.get_enum_from_string(line["show_character"])
+		character_sprite.change_character(character_name, false, line.get("expression", ""))
+	elif line.has("speaker"):
+		var character_name = Character.get_enum_from_string(line["speaker"])
+		character_sprite.change_character(character_name, true, line.get("expression", ""))
+	
+	if line.has("next_scene"):
+		var next_scene = line["next_scene"]
+		dialog_file = "res://resources/story/" + next_scene + ".json" if not next_scene.is_empty() else ""
+		transition_effect = line.get("transition", "fade")
+		SceneManager.transition_out(transition_effect)
+		return
 	
 	if line.has("choices"):
 		dialog_ui.display_choices(line["choices"])
-	else:
+	elif line.has("text"):
 		var character_name = Character.get_enum_from_string(line["speaker"])
 		dialog_ui.change_line(character_name, line["text"])
-		character_sprite.change_character(character_name)
-		
+	else:
+		dialog_index += 1
+		process_current_line()
+		return
 
 func load_dialog(file_path):
 	# check if the file exists
@@ -77,3 +107,17 @@ func _on_choice_selected(anchor: String):
 	dialog_index = get_anchor_position(anchor)
 	process_current_line()
 	next_sentence_sound.play()
+
+func _on_transition_out_completed():
+	if !dialog_file.is_empty():
+		dialog_lines = load_dialog(dialog_file)
+		dialog_index = 0
+		var first_line = dialog_lines[dialog_index]
+		if first_line.has("location"):
+			background.texture = load("res://assets/images/" + first_line["location"] + ".png")
+		SceneManager.transition_in(transition_effect)
+	else:
+		print("End")
+	
+func _on_transition_in_completed():
+	process_current_line()
