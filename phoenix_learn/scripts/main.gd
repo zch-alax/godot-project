@@ -17,7 +17,7 @@ func _ready() -> void:
 	SceneManager.transition_in_completed.connect(_on_transition_in_completed)
 	dialog_lines = load_dialog(dialog_file)
 	dialog_index = 0
-	process_current_line()
+	SceneManager.transition_in()
 	
 func _input(event: InputEvent) -> void:
 	var line = dialog_lines[dialog_index]

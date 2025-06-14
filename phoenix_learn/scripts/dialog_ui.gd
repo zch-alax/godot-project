@@ -20,6 +20,8 @@ var current_character_details: Dictionary
 
 func _ready() -> void:
 	choice_list.hide()
+	dialog_line.text = ""
+	speaker_name.text = ""
 
 func _process(delta: float) -> void:
 	if animate_text and sentence_pause_timer.is_stopped():

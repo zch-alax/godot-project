@@ -3,6 +3,7 @@ extends Node2D
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready() -> void:
+	self.modulate.a = 0
 	pass
 
 func change_character(character_name: Character.Name, is_talking: bool, expression: String):
@@ -17,7 +18,8 @@ func change_character(character_name: Character.Name, is_talking: bool, expressi
 			animated_sprite.play(stance)
 	else:
 		play_idle_animation()
-
+	if self.modulate.a == 0:
+		create_tween().tween_property(self, "modulate:a", 1.0, 0.2)
 
 func play_idle_animation():
 	var last_animation = animated_sprite.animation

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Phoenix_learn"
-run/main_scene="uid://b8ag51x5pug0g"
+run/main_scene="uid://dukmji0kwddu1"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 

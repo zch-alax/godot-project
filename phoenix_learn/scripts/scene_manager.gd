@@ -90,7 +90,7 @@ func _slide_in():
 	tween.tween_property(transition_rect, "position:x", viewport_size.x, transition_time)
 	tween.tween_callback(func():
 		transition_rect.visible = false
-		transition_out_completed.emit()
+		transition_in_completed.emit()
 	)
 
 
