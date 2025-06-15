@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://cgw5ofbdx3c8o"]
 
-[ext_resource type="Script" path="res://scripts/collectable/gold_coin.gd" id="1_hc8g4"]
+[ext_resource type="Script" uid="uid://devkwtv3xtptx" path="res://scripts/collectable/gold_coin.gd" id="1_hc8g4"]
 [ext_resource type="Texture2D" uid="uid://j68fg1bfgllv" path="res://assets/Pirate Treasure/Sprites/Coin Effect/01.png" id="2_m26yw"]
 [ext_resource type="Texture2D" uid="uid://bl3k8kvs06hvo" path="res://assets/Pirate Treasure/Sprites/Coin Effect/02.png" id="3_d3dhj"]
 [ext_resource type="Texture2D" uid="uid://u5vyew5jgqaa" path="res://assets/Pirate Treasure/Sprites/Coin Effect/03.png" id="4_x8o5n"]

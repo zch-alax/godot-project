@@ -1,0 +1,73 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6ebyslasjewh"]
+
+[ext_resource type="Texture2D" uid="uid://ohay6unpjcwc" path="res://assets/title/title_screen.png" id="1_6jsh8"]
+[ext_resource type="Script" uid="uid://dei3wgo2en16p" path="res://scripts/title_scene.gd" id="1_l8sac"]
+[ext_resource type="Theme" uid="uid://clt1k4yrw5crc" path="res://resources/title_scene.tres" id="2_4k7ef"]
+[ext_resource type="Texture2D" uid="uid://b8ggg8nwbag5k" path="res://assets/title/Trilogy - Chinese (Simplified).png" id="2_faptf"]
+
+[node name="TitleScene" type="Node2D"]
+script = ExtResource("1_l8sac")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_6jsh8")
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 554.0
+grow_horizontal = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("2_4k7ef")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="Control" type="Control" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1100, 500)
+layout_mode = 2
+texture = ExtResource("2_faptf")
+expand_mode = 1
+
+[node name="TitleHBox" type="HBoxContainer" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 100
+
+[node name="NewGameButton" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer/TitleHBox"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "开始新游戏"
+
+[node name="ContinueButton" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer/TitleHBox"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "继续游玩"
+
+[node name="ConfigButton" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer/TitleHBox"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "设定"
+
+[node name="QuitButton" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer/TitleHBox"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "结束游戏"
+
+[connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/TitleHBox/NewGameButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/TitleHBox/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/TitleHBox/ConfigButton" to="." method="_on_config_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/TitleHBox/QuitButton" to="." method="_on_quit_button_pressed"]

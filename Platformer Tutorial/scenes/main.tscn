@@ -1,28 +1,28 @@
 [gd_scene load_steps=29 format=3 uid="uid://c75uvp7apasfb"]
 
 [ext_resource type="Texture2D" uid="uid://dugxnknv7voi8" path="res://assets/Palm Tree Island/Sprites/Background/Additional Sky.png" id="1_6vm0r"]
-[ext_resource type="Script" path="res://scripts/main.gd" id="1_imgss"]
+[ext_resource type="Script" uid="uid://chubocvpfg1m7" path="res://scripts/main.gd" id="1_imgss"]
 [ext_resource type="Texture2D" uid="uid://5w06jqggkkvu" path="res://assets/Palm Tree Island/Sprites/Background/BG Image.png" id="2_71lw4"]
 [ext_resource type="Texture2D" uid="uid://220ubvtch7qm" path="res://assets/Palm Tree Island/Sprites/Background/Additional Water.png" id="3_40kvj"]
 [ext_resource type="Texture2D" uid="uid://d3epm4i3mnet6" path="res://assets/Palm Tree Island/Sprites/Background/Water Reflect Big 01.png" id="4_3xlhk"]
 [ext_resource type="Texture2D" uid="uid://udoadppbnhca" path="res://assets/Palm Tree Island/Sprites/Background/Water Reflect Big 02.png" id="5_sin47"]
 [ext_resource type="Texture2D" uid="uid://dkxtrgskoy75o" path="res://assets/Palm Tree Island/Sprites/Background/Water Reflect Big 03.png" id="6_0tm8h"]
 [ext_resource type="Texture2D" uid="uid://n1djs4n5nxqx" path="res://assets/Palm Tree Island/Sprites/Background/Water Reflect Big 04.png" id="7_r7tqe"]
-[ext_resource type="Script" path="res://scripts/scolling_background.gd" id="8_13mfn"]
+[ext_resource type="Script" uid="uid://cmt53vnmnuaro" path="res://scripts/scolling_background.gd" id="8_13mfn"]
 [ext_resource type="Texture2D" uid="uid://di47y1uhwpcxt" path="res://assets/Palm Tree Island/Sprites/Background/Big Clouds.png" id="8_w8ydc"]
 [ext_resource type="Texture2D" uid="uid://cmwslnwiaw1na" path="res://assets/Palm Tree Island/Sprites/Background/Small Cloud 1.png" id="10_kdifo"]
 [ext_resource type="Texture2D" uid="uid://ffio4m68smk4" path="res://assets/Palm Tree Island/Sprites/Background/Small Cloud 2.png" id="10_mkuow"]
 [ext_resource type="Texture2D" uid="uid://cn5s63p6cbl3j" path="res://assets/Palm Tree Island/Sprites/Background/Small Cloud 3.png" id="11_70gv1"]
-[ext_resource type="Script" path="res://scripts/UI/selection_menu.gd" id="13_a58e2"]
+[ext_resource type="Script" uid="uid://uhqmji81oi4t" path="res://scripts/UI/selection_menu.gd" id="13_a58e2"]
 [ext_resource type="Theme" uid="uid://dp5rutqvc4f6c" path="res://scenes/themes/yellow_board_theme.tres" id="13_yjnp5"]
 [ext_resource type="Theme" uid="uid://dtqxnamlmfprn" path="res://scenes/themes/banner_theme.tres" id="14_rmnup"]
 [ext_resource type="Theme" uid="uid://bwaxf4lt2v34r" path="res://scenes/themes/paper_theme.tres" id="15_cqel4"]
-[ext_resource type="Script" path="res://scripts/UI/new_game_selection.gd" id="17_4il7g"]
-[ext_resource type="Script" path="res://scripts/UI/exit_selection.gd" id="17_fa4qc"]
-[ext_resource type="Script" path="res://scripts/world.gd" id="20_0xy5r"]
-[ext_resource type="Script" path="res://scripts/UI/continue_selection.gd" id="20_2a0tk"]
-[ext_resource type="Script" path="res://scripts/UI/transition.gd" id="20_l371f"]
-[ext_resource type="Script" path="res://scripts/UI/main_menu_selection.gd" id="21_vn64m"]
+[ext_resource type="Script" uid="uid://hu2iuc42m1f5" path="res://scripts/UI/new_game_selection.gd" id="17_4il7g"]
+[ext_resource type="Script" uid="uid://kviwvo3vri13" path="res://scripts/UI/exit_selection.gd" id="17_fa4qc"]
+[ext_resource type="Script" uid="uid://ih5s4cq7eixg" path="res://scripts/world.gd" id="20_0xy5r"]
+[ext_resource type="Script" uid="uid://26tv3j3vtd5j" path="res://scripts/UI/continue_selection.gd" id="20_2a0tk"]
+[ext_resource type="Script" uid="uid://dqxhffbqnqhoe" path="res://scripts/UI/transition.gd" id="20_l371f"]
+[ext_resource type="Script" uid="uid://bgdifyiar75t0" path="res://scripts/UI/main_menu_selection.gd" id="21_vn64m"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_b28om"]
 animations = [{
@@ -129,9 +129,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e1bjs"]
 _data = {
-"RESET": SubResource("Animation_nbch2"),
-"fade_in": SubResource("Animation_3ab11"),
-"fade_out": SubResource("Animation_eerdv")
+&"RESET": SubResource("Animation_nbch2"),
+&"fade_in": SubResource("Animation_3ab11"),
+&"fade_out": SubResource("Animation_eerdv")
 }
 
 [node name="Main" type="Node2D"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://udtvertwp7pf"]
 
-[ext_resource type="Script" path="res://scripts/player/sword.gd" id="1_qf1ht"]
+[ext_resource type="Script" uid="uid://crn01bggdvqq0" path="res://scripts/player/sword.gd" id="1_qf1ht"]
 [ext_resource type="Texture2D" uid="uid://djudln8ek6gw" path="res://assets/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/21-Sword Idle/Sword Idle 01.png" id="2_x81dc"]
 [ext_resource type="Texture2D" uid="uid://dcg3vd8d8kjgs" path="res://assets/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/21-Sword Idle/Sword Idle 02.png" id="3_yud6v"]
 [ext_resource type="Texture2D" uid="uid://dw1fuupi74dta" path="res://assets/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/21-Sword Idle/Sword Idle 03.png" id="4_fn38j"]
