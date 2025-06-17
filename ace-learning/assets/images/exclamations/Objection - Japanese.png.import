@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8ggg8nwbag5k"
-path="res://.godot/imported/Trilogy - Chinese (Simplified).png-6a53240deff148a5d5b614d8572dd147.ctex"
+uid="uid://thxj28w1kdxs"
+path="res://.godot/imported/Objection - Japanese.png-51df88104d2123ce36a15c11cdb7dc37.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/title/Trilogy - Chinese (Simplified).png"
-dest_files=["res://.godot/imported/Trilogy - Chinese (Simplified).png-6a53240deff148a5d5b614d8572dd147.ctex"]
+source_file="res://assets/images/exclamations/Objection - Japanese.png"
+dest_files=["res://.godot/imported/Objection - Japanese.png-51df88104d2123ce36a15c11cdb7dc37.ctex"]
 
 [params]
 

@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://cd0uqy50kd1b0"]
+
+[ext_resource type="Texture2D" uid="uid://d121gdnybfrjf" path="res://assets/images/characters/3DS - Phoenix Wright Ace Attorney Trilogy - Phoenix Wright.png" id="1_k8qwi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kciyk"]
+atlas = ExtResource("1_k8qwi")
+region = Rect2(0, 0, 187, 218)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sjefb"]
+atlas = ExtResource("1_k8qwi")
+region = Rect2(187, 0, 187, 218)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fav0o"]
+atlas = ExtResource("1_k8qwi")
+region = Rect2(374, 0, 187, 218)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0jyde"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kciyk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sjefb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fav0o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sjefb")
+}],
+"loop": true,
+"name": &"talking",
+"speed": 7.0
+}]
+
+[node name="CharacterSprite" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0jyde")
+animation = &"talking"
+frame_progress = 0.522433

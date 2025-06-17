@@ -49,3 +49,6 @@ func fade_in():
 	tween.tween_callback(func(): 
 		transition_rect.visible = false
 		transition_in_completed.emit())
+
+func change_scene(path: String):
+	get_tree().change_scene_to_file(path)

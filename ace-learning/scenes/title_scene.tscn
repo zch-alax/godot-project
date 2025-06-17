@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://c6ebyslasjewh"]
 
-[ext_resource type="Texture2D" uid="uid://ohay6unpjcwc" path="res://assets/title/title_screen.png" id="1_6jsh8"]
 [ext_resource type="Script" uid="uid://dei3wgo2en16p" path="res://scripts/title_scene.gd" id="1_l8sac"]
 [ext_resource type="Theme" uid="uid://clt1k4yrw5crc" path="res://resources/title_scene.tres" id="2_4k7ef"]
-[ext_resource type="Texture2D" uid="uid://b8ggg8nwbag5k" path="res://assets/title/Trilogy - Chinese (Simplified).png" id="2_faptf"]
+[ext_resource type="Texture2D" uid="uid://ohay6unpjcwc" path="res://assets/images/title/title_screen.png" id="2_l8sac"]
+[ext_resource type="Texture2D" uid="uid://b8ggg8nwbag5k" path="res://assets/images/title/Trilogy - Chinese (Simplified).png" id="4_bq8jb"]
 
 [node name="TitleScene" type="Node2D"]
 script = ExtResource("1_l8sac")
@@ -16,7 +16,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_6jsh8")
+texture = ExtResource("2_l8sac")
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
 anchors_preset = 10
@@ -38,7 +38,7 @@ layout_mode = 2
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(1100, 500)
 layout_mode = 2
-texture = ExtResource("2_faptf")
+texture = ExtResource("4_bq8jb")
 expand_mode = 1
 
 [node name="TitleHBox" type="HBoxContainer" parent="CanvasLayer/CenterContainer/VBoxContainer"]

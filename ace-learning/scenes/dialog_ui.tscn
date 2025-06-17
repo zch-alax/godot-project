@@ -1,0 +1,117 @@
+[gd_scene load_steps=5 format=3 uid="uid://ddvspt581k5to"]
+
+[ext_resource type="Theme" uid="uid://bqa6xq4tu81vb" path="res://dialog_ui.tres" id="1_xh3aw"]
+[ext_resource type="Texture2D" uid="uid://cq5mb4av5dumu" path="res://assets/images/line button.png" id="2_yjvli"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yjvli"]
+atlas = ExtResource("2_yjvli")
+region = Rect2(4, 0, 110, 157)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_avaca"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_yjvli")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yjvli")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="dialog_ui" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_xh3aw")
+
+[node name="SentencePauseTimer" type="Timer" parent="."]
+wait_time = 0.35
+one_shot = true
+
+[node name="TextBlipTimer" type="Timer" parent="."]
+wait_time = 0.12
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -180.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "This is a line of dialog."
+scroll_active = false
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 70.0
+offset_top = -199.6
+offset_right = 250.0
+offset_bottom = -159.6
+grow_vertical = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="Control"]
+position = Vector2(20, 0)
+color = Color(0.141013, 0.541121, 0.817616, 1)
+polygon = PackedVector2Array(140, 0, 160, 20, 140, 40, 0, 40, -20, 20, 0, 0)
+
+[node name="Line2D" type="Line2D" parent="Control/Polygon2D"]
+points = PackedVector2Array(140, 0, 160, 20, 140, 40, 0, 40, -20, 20, 0, 0)
+closed = true
+width = 1.0
+default_color = Color(0.879776, 0.879776, 0.879776, 1)
+
+[node name="SpeakerName" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.5
+offset_top = -11.5
+offset_right = 23.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "Name"
+
+[node name="Control2" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -47.0
+offset_top = -58.0
+offset_right = -47.0
+offset_bottom = -58.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control2"]
+position = Vector2(-23, -39)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_avaca")
+autoplay = "default"
+frame_progress = 0.696642
