@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://ddvspt581k5to"]
+[gd_scene load_steps=7 format=3 uid="uid://ddvspt581k5to"]
 
 [ext_resource type="Theme" uid="uid://bqa6xq4tu81vb" path="res://dialog_ui.tres" id="1_xh3aw"]
+[ext_resource type="Script" uid="uid://bgkn0egys1lr5" path="res://scripts/dialog_ui.gd" id="2_edwrk"]
 [ext_resource type="Texture2D" uid="uid://cq5mb4av5dumu" path="res://assets/images/line button.png" id="2_yjvli"]
+[ext_resource type="Script" uid="uid://gl53g8afh38m" path="res://scripts/text_blip_sound.gd" id="3_avaca"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yjvli"]
 atlas = ExtResource("2_yjvli")
@@ -29,6 +31,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_xh3aw")
+script = ExtResource("2_edwrk")
 
 [node name="SentencePauseTimer" type="Timer" parent="."]
 wait_time = 0.35
@@ -37,7 +40,8 @@ one_shot = true
 [node name="TextBlipTimer" type="Timer" parent="."]
 wait_time = 0.12
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="TextBlipSound" type="AudioStreamPlayer" parent="."]
+script = ExtResource("3_avaca")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 custom_minimum_size = Vector2(0, 150)
@@ -51,7 +55,8 @@ offset_bottom = -30.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer"]
+[node name="DialogLine" type="RichTextLabel" parent="PanelContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 bbcode_enabled = true
 text = "This is a line of dialog."
@@ -115,3 +120,6 @@ scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_avaca")
 autoplay = "default"
 frame_progress = 0.696642
+
+[connection signal="timeout" from="SentencePauseTimer" to="." method="_on_sentence_pause_timer_timeout"]
+[connection signal="timeout" from="TextBlipTimer" to="." method="_on_text_blip_timer_timeout"]
