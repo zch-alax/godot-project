@@ -1,42 +1,30 @@
-[gd_scene load_steps=6 format=3 uid="uid://cd0uqy50kd1b0"]
+[gd_scene load_steps=5 format=3 uid="uid://cd0uqy50kd1b0"]
 
-[ext_resource type="Texture2D" uid="uid://d121gdnybfrjf" path="res://assets/images/characters/3DS - Phoenix Wright Ace Attorney Trilogy - Phoenix Wright.png" id="1_k8qwi"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kciyk"]
-atlas = ExtResource("1_k8qwi")
-region = Rect2(0, 0, 187, 218)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sjefb"]
-atlas = ExtResource("1_k8qwi")
-region = Rect2(187, 0, 187, 218)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fav0o"]
-atlas = ExtResource("1_k8qwi")
-region = Rect2(374, 0, 187, 218)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_0jyde"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kciyk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sjefb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fav0o")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sjefb")
-}],
-"loop": true,
-"name": &"talking",
-"speed": 7.0
-}]
+[ext_resource type="Script" uid="uid://dg2sueopteug5" path="res://scripts/character_sprite.gd" id="1_kciyk"]
+[ext_resource type="SpriteFrames" uid="uid://b4qtl6p8iqvs5" path="res://resources/character/judge.tres" id="2_kciyk"]
+[ext_resource type="SpriteFrames" uid="uid://divvjtgpu4jcp" path="res://resources/character/winston.tres" id="3_sjefb"]
+[ext_resource type="SpriteFrames" uid="uid://d4caib7c7yy2o" path="res://resources/character/phoenix.tres" id="4_fav0o"]
 
 [node name="CharacterSprite" type="Node2D"]
+script = ExtResource("1_kciyk")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_0jyde")
+[node name="Judge" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(0, -44)
+sprite_frames = ExtResource("2_kciyk")
+animation = &"idle"
+
+[node name="Winston" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(285, 31)
+scale = Vector2(2.5, 2.5)
+sprite_frames = ExtResource("3_sjefb")
 animation = &"talking"
-frame_progress = 0.522433
+
+[node name="Phoenix" type="AnimatedSprite2D" parent="."]
+position = Vector2(-131, 23)
+scale = Vector2(2.5, 2.5)
+sprite_frames = ExtResource("4_fav0o")
+animation = &"talking"
+frame = 1
+frame_progress = 0.695154

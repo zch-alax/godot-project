@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2prsoljp1d1k"
-path="res://.godot/imported/GyakutenSaiban010.png-68355994f49800f99cba7906606cd637.ctex"
+uid="uid://b0qmg1sdr4lgc"
+path="res://.godot/imported/defense-side.png-8b7a1301125a4f468473d7724e482117.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/location/GyakutenSaiban010.png"
-dest_files=["res://.godot/imported/GyakutenSaiban010.png-68355994f49800f99cba7906606cd637.ctex"]
+source_file="res://assets/images/location/defense-side.png"
+dest_files=["res://.godot/imported/defense-side.png-8b7a1301125a4f468473d7724e482117.ctex"]
 
 [params]
 

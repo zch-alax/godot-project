@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://jhu11usbbtss"]
+[gd_scene load_steps=5 format=3 uid="uid://jhu11usbbtss"]
 
 [ext_resource type="Script" uid="uid://wrmvprvow4hj" path="res://scripts/main.gd" id="1_o5qli"]
-[ext_resource type="Texture2D" uid="uid://c2prsoljp1d1k" path="res://assets/images/location/GyakutenSaiban010.png" id="2_0wfyh"]
+[ext_resource type="Texture2D" uid="uid://b0qmg1sdr4lgc" path="res://assets/images/location/defense-side.png" id="2_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://cd0uqy50kd1b0" path="res://scenes/character_sprite.tscn" id="3_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://ddvspt581k5to" path="res://scenes/dialog_ui.tscn" id="3_sugp2"]
 
 [node name="Main" type="Node2D"]
@@ -11,13 +12,30 @@ dialog_file = "res://resources/story/first_scene.json"
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="BackGround" type="TextureRect" parent="CanvasLayer"]
+unique_name_in_owner = true
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_0wfyh")
+texture = ExtResource("2_jyhfs")
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer2"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CharacterSprite" parent="CanvasLayer2/Control" instance=ExtResource("3_jyhfs")]
 
 [node name="dialog_ui" parent="CanvasLayer2" instance=ExtResource("3_sugp2")]

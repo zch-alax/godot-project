@@ -5,9 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://cq5mb4av5dumu" path="res://assets/images/line button.png" id="2_yjvli"]
 [ext_resource type="Script" uid="uid://gl53g8afh38m" path="res://scripts/text_blip_sound.gd" id="3_avaca"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yjvli"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_avaca"]
 atlas = ExtResource("2_yjvli")
-region = Rect2(4, 0, 110, 157)
+region = Rect2(10, 0, 104, 157)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_avaca"]
 animations = [{
@@ -16,7 +16,7 @@ animations = [{
 "texture": ExtResource("2_yjvli")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yjvli")
+"texture": SubResource("AtlasTexture_avaca")
 }],
 "loop": true,
 "name": &"default",
@@ -61,8 +61,9 @@ layout_mode = 2
 bbcode_enabled = true
 text = "This is a line of dialog."
 scroll_active = false
+visible_characters_behavior = 3
 
-[node name="Control" type="Control" parent="."]
+[node name="SpeakerPanel" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -73,18 +74,19 @@ offset_right = 250.0
 offset_bottom = -159.6
 grow_vertical = 0
 
-[node name="Polygon2D" type="Polygon2D" parent="Control"]
+[node name="Polygon2D" type="Polygon2D" parent="SpeakerPanel"]
 position = Vector2(20, 0)
 color = Color(0.141013, 0.541121, 0.817616, 1)
 polygon = PackedVector2Array(140, 0, 160, 20, 140, 40, 0, 40, -20, 20, 0, 0)
 
-[node name="Line2D" type="Line2D" parent="Control/Polygon2D"]
+[node name="Line2D" type="Line2D" parent="SpeakerPanel/Polygon2D"]
 points = PackedVector2Array(140, 0, 160, 20, 140, 40, 0, 40, -20, 20, 0, 0)
 closed = true
 width = 1.0
 default_color = Color(0.879776, 0.879776, 0.879776, 1)
 
-[node name="SpeakerName" type="Label" parent="Control"]
+[node name="SpeakerName" type="Label" parent="SpeakerPanel"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -114,7 +116,9 @@ offset_bottom = -58.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control2"]
+[node name="AnimatedLine" type="AnimatedSprite2D" parent="Control2"]
+unique_name_in_owner = true
+visible = false
 position = Vector2(-23, -39)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_avaca")

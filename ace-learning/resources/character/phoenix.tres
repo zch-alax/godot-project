@@ -1,0 +1,61 @@
+[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://d4caib7c7yy2o"]
+
+[ext_resource type="Texture2D" uid="uid://d121gdnybfrjf" path="res://assets/images/characters/3DS - Phoenix Wright Ace Attorney Trilogy - Phoenix Wright.png" id="1_trr5g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trr5g"]
+atlas = ExtResource("1_trr5g")
+region = Rect2(190, 430, 187, 215)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0gg6"]
+atlas = ExtResource("1_trr5g")
+region = Rect2(3, 0, 187, 215)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64prb"]
+atlas = ExtResource("1_trr5g")
+region = Rect2(190, 0, 187, 215)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f70ji"]
+atlas = ExtResource("1_trr5g")
+region = Rect2(190, 430, 187, 215)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_as30j"]
+atlas = ExtResource("1_trr5g")
+region = Rect2(564, 0, 187, 215)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3j1f"]
+atlas = ExtResource("1_trr5g")
+region = Rect2(377, 0, 187, 215)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trr5g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0gg6")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_64prb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0gg6")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f70ji")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_as30j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q3j1f")
+}],
+"loop": true,
+"name": &"talking",
+"speed": 5.0
+}]

@@ -1,11 +1,11 @@
 [gd_resource type="Theme" load_steps=2 format=3 uid="uid://bqa6xq4tu81vb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n58gf"]
-content_margin_left = 200.0
+content_margin_left = 100.0
 content_margin_top = 20.0
-content_margin_right = 40.0
+content_margin_right = 100.0
 content_margin_bottom = 20.0
-bg_color = Color(0, 0.2, 0.345098, 0.431373)
+bg_color = Color(0, 0.2, 0.345098, 0.866667)
 border_width_top = 1
 border_width_bottom = 1
 border_color = Color(0.878431, 0.878431, 0.878431, 1)

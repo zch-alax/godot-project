@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dippxcl2rflqo"
-path="res://.godot/imported/GyakutenSaiban042.png-ee2473a0704a6415f726b62d1859e60b.ctex"
+path="res://.godot/imported/GyakutenSaiban042.png-4f868d26dac30c59e301e6d32b62ede7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/location/GyakutenSaiban042.png"
-dest_files=["res://.godot/imported/GyakutenSaiban042.png-ee2473a0704a6415f726b62d1859e60b.ctex"]
+source_file="res://assets/images/background/GyakutenSaiban042.png"
+dest_files=["res://.godot/imported/GyakutenSaiban042.png-4f868d26dac30c59e301e6d32b62ede7.ctex"]
 
 [params]
 

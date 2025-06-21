@@ -5,7 +5,7 @@ signal transition_in_completed
 
 var transition_layer: CanvasLayer
 var transition_rect: ColorRect
-var transition_time: float = 0.5
+var transition_time: float = 0.7
 
 func _ready() -> void:
 	transition_layer = CanvasLayer.new()

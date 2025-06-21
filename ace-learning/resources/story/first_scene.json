@@ -1,10 +1,12 @@
 [
-	{"text": "......呼哈......呼哈......"},
-	{"text": "......可恶！\n为什么我会遇到这种事......"},
-	{"text": "......我可不想因为这种事......\n被抓起来......"},
-	{"text": "得赶快......\n找个替死鬼......"},
-	{"text": "对了，那家伙......"},
-	{"text": "就叫那家伙做替死鬼好了......"},
-	{"text": "8月3日  上午9时47分\n地方法院  被告第二休息室"},
+	{"speaker": "Phoenix", "text": "我的名字叫成步堂  龙一。"},
+	{"speaker": "Phoenix", "text": "3 个月前才刚刚成为律师，\n今天是我第一次上法庭。"},
+	{"text": "[center][color=green] 8 月 3 日  上午 10 时\n地方法院  第2法庭[/color][/center]"},
+	{"background": "judge-side"},
+	{"speaker": "Judge", "text": "现在本院宣布\n开始审理矢张  政志一案。"},
+	{"background": "prosecution-side"},
+	{"speaker": "Winston", "text": "检方已准备完毕。"},
+	{"background": "defense-side"},
+	{"speaker": "Phoenix", "text": "辩、辩方也准备完毕。"},
 	{}
 ]

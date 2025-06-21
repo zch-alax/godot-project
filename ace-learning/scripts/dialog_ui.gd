@@ -7,16 +7,19 @@ const NO_SOUND_CHARS := [".", ",", "!", "?"]
 
 var animate_text := true
 var current_visible_characters := 0
-var current_character_details: Dictionary
+var current_character_detail: Dictionary
 
 @onready var speaker_name: Label = %SpeakerName
+@onready var speaker_panel: Control = $SpeakerPanel
 @onready var dialog_line: RichTextLabel = %DialogLine
 @onready var text_blip_timer: Timer = $TextBlipTimer
 @onready var sentence_pause_timer: Timer = $SentencePauseTimer
-@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 @onready var text_blip_sound: AudioStreamPlayer = $TextBlipSound
+@onready var animated_line: AnimatedSprite2D = %AnimatedLine
 
 func _ready() -> void:
+	speaker_panel.visible = false
+	animated_line.visible = false
 	speaker_name.text = ""
 	dialog_line.text = ""
 	
@@ -38,8 +41,12 @@ func _process(delta: float) -> void:
 			animation_done.emit()
 
 func change_line(character_name: Character.Name, line: String):
-	current_character_details = Character.CHARACTER_DETAILS[character_name]
-	speaker_name.text = current_character_details["name"]
+	speaker_panel.visible = true
+	if character_name == -1:
+		speaker_panel.visible = false
+	else:
+		current_character_detail = Character.CHARACTER_DETAILS.get(character_name)
+		speaker_name.text = current_character_detail["name"]
 	current_visible_characters = 0
 	dialog_line.text = line
 	dialog_line.visible_characters = 0
@@ -51,7 +58,7 @@ func skip_text_animation():
 
 
 func _on_text_blip_timer_timeout() -> void:
-	text_blip_sound.play_sound(current_character_details["gender"])
+	text_blip_sound.play_sound(current_character_detail.get("gender", "default"))
 
 
 func _on_sentence_pause_timer_timeout() -> void:

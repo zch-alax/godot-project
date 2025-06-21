@@ -1,0 +1,51 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://divvjtgpu4jcp"]
+
+[ext_resource type="Texture2D" uid="uid://c42ma2fgct8s0" path="res://assets/images/characters/3DS - Phoenix Wright Ace Attorney Trilogy - Winston Payne.png" id="1_6ovy1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ovy1"]
+atlas = ExtResource("1_6ovy1")
+region = Rect2(0, 630, 187, 210)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sjefb"]
+atlas = ExtResource("1_6ovy1")
+region = Rect2(0, 630, 187, 210)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fav0o"]
+atlas = ExtResource("1_6ovy1")
+region = Rect2(187, 630, 187, 210)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jyde"]
+atlas = ExtResource("1_6ovy1")
+region = Rect2(374, 630, 187, 210)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fownn"]
+atlas = ExtResource("1_6ovy1")
+region = Rect2(561, 630, 187, 210)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ovy1")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sjefb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fav0o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0jyde")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fownn")
+}],
+"loop": true,
+"name": &"talking",
+"speed": 5.0
+}]

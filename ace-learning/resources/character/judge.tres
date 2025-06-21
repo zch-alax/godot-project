@@ -1,0 +1,51 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://b4qtl6p8iqvs5"]
+
+[ext_resource type="Texture2D" uid="uid://dttt2a1ykkb1v" path="res://assets/images/characters/Mobile - Phoenix Wright Ace Attorney Trilogy HD - Judge.png" id="1_tbf1a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kciyk"]
+atlas = ExtResource("1_tbf1a")
+region = Rect2(2322, 2045, 464, 409)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sjefb"]
+atlas = ExtResource("1_tbf1a")
+region = Rect2(2786, 2045, 464, 409)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fav0o"]
+atlas = ExtResource("1_tbf1a")
+region = Rect2(2322, 2863, 464, 409)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jyde"]
+atlas = ExtResource("1_tbf1a")
+region = Rect2(1394, 2863, 464, 409)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fownn"]
+atlas = ExtResource("1_tbf1a")
+region = Rect2(1858, 2863, 464, 409)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kciyk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sjefb")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fav0o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0jyde")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fownn")
+}],
+"loop": true,
+"name": &"talking",
+"speed": 5.0
+}]

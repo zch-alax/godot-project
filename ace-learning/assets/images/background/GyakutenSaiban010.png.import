@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgsw6oevb6ijb"
-path="res://.godot/imported/GyakutenSaiban063.png-cd617255b419e2373c2c9f686df9d8ca.ctex"
+uid="uid://c2prsoljp1d1k"
+path="res://.godot/imported/GyakutenSaiban010.png-61081ff110aadb44c8d3d86acd89bf68.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/location/GyakutenSaiban063.png"
-dest_files=["res://.godot/imported/GyakutenSaiban063.png-cd617255b419e2373c2c9f686df9d8ca.ctex"]
+source_file="res://assets/images/background/GyakutenSaiban010.png"
+dest_files=["res://.godot/imported/GyakutenSaiban010.png-61081ff110aadb44c8d3d86acd89bf68.ctex"]
 
 [params]
 
