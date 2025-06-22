@@ -1,13 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://jhu11usbbtss"]
+[gd_scene load_steps=6 format=3 uid="uid://jhu11usbbtss"]
 
 [ext_resource type="Script" uid="uid://wrmvprvow4hj" path="res://scripts/main.gd" id="1_o5qli"]
 [ext_resource type="Texture2D" uid="uid://b0qmg1sdr4lgc" path="res://assets/images/location/defense-side.png" id="2_jyhfs"]
+[ext_resource type="AudioStream" uid="uid://c0xfeq7txmt66" path="res://assets/sound/sfx-dink.wav" id="2_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://cd0uqy50kd1b0" path="res://scenes/character_sprite.tscn" id="3_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://ddvspt581k5to" path="res://scenes/dialog_ui.tscn" id="3_sugp2"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_o5qli")
 dialog_file = "res://resources/story/first_scene.json"
+
+[node name="NextSentenceSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_tbgi4")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

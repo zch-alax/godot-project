@@ -16,6 +16,7 @@ const background_imgs := {
 var dialog_lines: Array = []
 var dialog_index: int = 0
 
+@onready var next_sentence_sound: AudioStreamPlayer = $NextSentenceSound
 @onready var character_sprite: Node2D = $CanvasLayer2/Control/CharacterSprite
 @onready var back_ground: TextureRect = %BackGround
 @onready var dialog_ui: Control = $CanvasLayer2/dialog_ui
@@ -24,17 +25,20 @@ func _ready() -> void:
 	SceneManager.transition_out_completed.connect(_on_transition_out_completed)
 	SceneManager.transition_in_completed.connect(_on_transition_in_completed)
 	dialog_ui.animation_done.connect(_on_animation_done)
+	dialog_ui.choice_selected.connect(_on_choice_selected)
 	dialog_lines = load_dialog(dialog_file)
 	dialog_index = 0
 	SceneManager.transition_in()
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("next_line"):
+	var has_choice = dialog_lines[dialog_index].has("choices")
+	if event.is_action_pressed("next_line") and not has_choice:
 		if dialog_ui.animate_text:
 			dialog_ui.skip_text_animation()
 		else:
 			if dialog_index < dialog_lines.size() -1:
 				dialog_index += 1
+				next_sentence_sound.play()
 				process__current_line()
 
 func process__current_line():
@@ -50,6 +54,19 @@ func process__current_line():
 		back_ground.texture = background_imgs.get(background_img_name)
 		SceneManager.transition_in()
 		dialog_index += 1
+		return
+	
+	if line.has("choices"):
+		dialog_ui.display_choices(line["choices"])
+	
+	if line.has("goto"):
+		dialog_index = get_anchor_position(line["goto"])
+		process__current_line()
+		return
+	
+	if line.has("anchor"):
+		dialog_index += 1
+		process__current_line()
 		return
 	
 	if line.has("speaker"):
@@ -75,6 +92,13 @@ func load_dialog(file_path: String):
 		print("ERROR: Failed to parse JSON from file:" + file_path)
 	return content
 
+func get_anchor_position(anchor: String):
+	for i in range(dialog_lines.size()):
+		if dialog_lines[i].has("anchor") and dialog_lines[i]["anchor"] == anchor:
+			return i
+	printerr("Error:could not find anchor:" + anchor)
+	return 0
+
 func _on_animation_done():
 	character_sprite.play_idle_animation()
 	dialog_ui.animated_line.visible = true
@@ -84,3 +108,8 @@ func _on_transition_out_completed():
 
 func _on_transition_in_completed():
 	process__current_line()
+
+func _on_choice_selected(anchor: String):
+	dialog_index = get_anchor_position(anchor)
+	process__current_line()
+	next_sentence_sound.play()

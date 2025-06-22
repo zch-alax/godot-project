@@ -1,9 +1,11 @@
 extends Control
 
 signal animation_done
+signal choice_selected
 
 const ANIMATION_SPEED := 20
 const NO_SOUND_CHARS := [".", ",", "!", "?"]
+const ChoiceButtonSence = preload("res://scenes/choice_button.tscn")
 
 var animate_text := true
 var current_visible_characters := 0
@@ -16,8 +18,10 @@ var current_character_detail: Dictionary
 @onready var sentence_pause_timer: Timer = $SentencePauseTimer
 @onready var text_blip_sound: AudioStreamPlayer = $TextBlipSound
 @onready var animated_line: AnimatedSprite2D = %AnimatedLine
+@onready var choice_list: VBoxContainer = $ChoicesContainer/ChoiceList
 
 func _ready() -> void:
+	choice_list.hide()
 	speaker_panel.visible = false
 	animated_line.visible = false
 	speaker_name.text = ""
@@ -56,6 +60,17 @@ func change_line(character_name: Character.Name, line: String):
 func skip_text_animation():
 	dialog_line.visible_ratio = 1
 
+func display_choices(choices: Array):
+	if not choices:
+		return
+	for child in choice_list.get_children():
+		child.queue_free()
+	for choice in choices:
+		var choice_button = ChoiceButtonSence.instantiate()
+		choice_button.pressed.connect(_on_choice_button_pressed.bind(choice["goto"]))
+		choice_button.text = choice["text"]
+		choice_list.add_child(choice_button)
+	choice_list.show()
 
 func _on_text_blip_timer_timeout() -> void:
 	text_blip_sound.play_sound(current_character_detail.get("gender", "default"))
@@ -63,3 +78,7 @@ func _on_text_blip_timer_timeout() -> void:
 
 func _on_sentence_pause_timer_timeout() -> void:
 	text_blip_timer.start()
+
+func _on_choice_button_pressed(anchor: String) -> void:
+	choice_selected.emit(anchor)
+	choice_list.hide()

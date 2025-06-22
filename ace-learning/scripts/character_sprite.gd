@@ -5,10 +5,12 @@ var animated_sprite: AnimatedSprite2D
 var pre_animated_sprite: AnimatedSprite2D
 
 func _ready() -> void:
-	SceneManager.transition_out_completed.connect(_on_transition_out_completed)
+	SceneManager.transition_out_started.connect(_on_transition_out_started)
 	self.modulate.a = 0
 
 func change_character(character_name: Character.Name, is_talking: bool, expression: String):
+	if pre_animated_sprite:
+		pre_animated_sprite.visible = false
 	need_change = true
 	var en_name = Character.CHARACTER_DETAILS[character_name]["en_name"]
 	if has_node(en_name):
@@ -44,7 +46,7 @@ func play_idle_animation():
 		else:
 			animated_sprite.play("idle")
 
-func _on_transition_out_completed():
+func _on_transition_out_started():
 	if need_change and pre_animated_sprite != null:
 		pre_animated_sprite.visible = false
 	need_change = false

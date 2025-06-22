@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://ddvspt581k5to"]
+[gd_scene load_steps=9 format=3 uid="uid://ddvspt581k5to"]
 
-[ext_resource type="Theme" uid="uid://bqa6xq4tu81vb" path="res://dialog_ui.tres" id="1_xh3aw"]
+[ext_resource type="Theme" uid="uid://ck0pokkpy4dr3" path="res://resources/dialog_ui.tres" id="1_8nsh5"]
 [ext_resource type="Script" uid="uid://bgkn0egys1lr5" path="res://scripts/dialog_ui.gd" id="2_edwrk"]
 [ext_resource type="Texture2D" uid="uid://cq5mb4av5dumu" path="res://assets/images/line button.png" id="2_yjvli"]
 [ext_resource type="Script" uid="uid://gl53g8afh38m" path="res://scripts/text_blip_sound.gd" id="3_avaca"]
+[ext_resource type="PackedScene" uid="uid://b20b1q7vp8ofe" path="res://scenes/choice_button.tscn" id="4_8nsh5"]
+[ext_resource type="Theme" uid="uid://c2cl321x287kp" path="res://resources/court_button_theme.tres" id="6_ys628"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_avaca"]
 atlas = ExtResource("2_yjvli")
@@ -30,7 +32,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_xh3aw")
+theme = ExtResource("1_8nsh5")
 script = ExtResource("2_edwrk")
 
 [node name="SentencePauseTimer" type="Timer" parent="."]
@@ -43,7 +45,23 @@ wait_time = 0.12
 [node name="TextBlipSound" type="AudioStreamPlayer" parent="."]
 script = ExtResource("3_avaca")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="ChoicesContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ChoiceList" type="VBoxContainer" parent="ChoicesContainer"]
+custom_minimum_size = Vector2(460, 0)
+layout_mode = 2
+
+[node name="ChoiceButton" parent="ChoicesContainer/ChoiceList" instance=ExtResource("4_8nsh5")]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="DialogBox" type="PanelContainer" parent="."]
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 1
 anchors_preset = 12
@@ -55,7 +73,7 @@ offset_bottom = -30.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="DialogLine" type="RichTextLabel" parent="PanelContainer"]
+[node name="DialogLine" type="RichTextLabel" parent="DialogBox"]
 unique_name_in_owner = true
 layout_mode = 2
 bbcode_enabled = true
@@ -124,6 +142,43 @@ scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_avaca")
 autoplay = "default"
 frame_progress = 0.696642
+
+[node name="ConfigPanel" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -270.0
+offset_top = -53.0
+offset_bottom = -33.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="ConfigPanel"]
+position = Vector2(20, 0)
+color = Color(0.878431, 0.878431, 0.878431, 1)
+polygon = PackedVector2Array(0, 0, 250, 0, 250, 20, -20, 20)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ConfigPanel"]
+layout_mode = 1
+offset_right = 270.0
+offset_bottom = 20.0
+theme_override_constants/separation = 30
+
+[node name="ConfigButton" type="Button" parent="ConfigPanel/HBoxContainer"]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+theme = ExtResource("6_ys628")
+text = "设定"
+
+[node name="CourtDataButton" type="Button" parent="ConfigPanel/HBoxContainer"]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+theme = ExtResource("6_ys628")
+theme_override_font_sizes/font_size = 8
+text = "法庭记录"
 
 [connection signal="timeout" from="SentencePauseTimer" to="." method="_on_sentence_pause_timer_timeout"]
 [connection signal="timeout" from="TextBlipTimer" to="." method="_on_text_blip_timer_timeout"]

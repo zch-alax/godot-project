@@ -1,11 +1,13 @@
 extends Node2D
 
+signal transition_out_started
+signal transition_in_started
 signal transition_out_completed
 signal transition_in_completed
 
 var transition_layer: CanvasLayer
 var transition_rect: ColorRect
-var transition_time: float = 0.7
+var transition_time: float = 0.8
 
 func _ready() -> void:
 	transition_layer = CanvasLayer.new()
@@ -18,6 +20,7 @@ func _ready() -> void:
 	get_tree().root.add_child.call_deferred(transition_layer)
 
 func transition_out(effect: String = "fade"):
+	transition_out_started.emit()
 	transition_rect.visible = true
 	match effect:
 		"fade":
@@ -26,6 +29,7 @@ func transition_out(effect: String = "fade"):
 			fade_out()
 			
 func transition_in(effect: String = "fade"):
+	transition_in_started.emit()
 	match effect:
 		"fade":
 			fade_in()
