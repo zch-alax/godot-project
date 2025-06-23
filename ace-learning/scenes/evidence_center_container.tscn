@@ -1,0 +1,128 @@
+[gd_scene load_steps=12 format=3 uid="uid://dmd8d1e4nhgwp"]
+
+[ext_resource type="PackedScene" uid="uid://bj3f1pxnhsmsw" path="res://scenes/config_panel.tscn" id="1_1cff8"]
+[ext_resource type="Texture2D" uid="uid://bwbu7om4qfun" path="res://assets/images/evidence/1.png" id="1_p12qu"]
+[ext_resource type="Script" uid="uid://csjuyy0uchnbf" path="res://scripts/evidence_center_container.gd" id="1_rl1o4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8nsh5"]
+bg_color = Color(0.141176, 0.541176, 0.815686, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 2
+border_color = Color(0.878431, 0.878431, 0.878431, 1)
+
+[sub_resource type="Theme" id="Theme_ys628"]
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_8nsh5")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ys628"]
+bg_color = Color(0.878431, 0.878431, 0.878431, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_color = Color(0.141176, 0.541176, 0.815686, 1)
+
+[sub_resource type="Theme" id="Theme_3d5y4"]
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_ys628")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_quf6n"]
+bg_color = Color(0.849013, 0.642172, 0.167752, 1)
+
+[sub_resource type="Theme" id="Theme_rl1o4"]
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/font_sizes/font_size = 32
+Label/styles/normal = SubResource("StyleBoxFlat_quf6n")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rl1o4"]
+bg_color = Color(0.878431, 0.878431, 0.878431, 1)
+
+[sub_resource type="Theme" id="Theme_quf6n"]
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/font_sizes/font_size = 24
+Label/styles/normal = SubResource("StyleBoxFlat_rl1o4")
+
+[node name="EvidenceCenterContainer" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rl1o4")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="EvidencePanel" type="PanelContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(880, 420)
+layout_mode = 2
+theme = SubResource("Theme_ys628")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/EvidencePanel"]
+custom_minimum_size = Vector2(0, 420)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 10
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/EvidencePanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+theme = SubResource("Theme_3d5y4")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/EvidencePanel/VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="EvidenceRect" type="TextureRect" parent="VBoxContainer/EvidencePanel/VBoxContainer/PanelContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+texture = ExtResource("1_p12qu")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/EvidencePanel/VBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Control" type="Control" parent="VBoxContainer/EvidencePanel/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="EvidenceName" type="Label" parent="VBoxContainer/EvidencePanel/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+theme = SubResource("Theme_rl1o4")
+text = "律师徽章"
+
+[node name="EvidenceDetial" type="Label" parent="VBoxContainer/EvidencePanel/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = SubResource("Theme_quf6n")
+text = "如果没有这个东西，
+就不会有人承认我是律师。"
+
+[node name="ItemList" type="ItemList" parent="VBoxContainer/EvidencePanel/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_constants/h_separation = 5
+allow_search = false
+max_columns = 10
+icon_scale = 0.7
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/EvidencePanel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Control" type="Control" parent="VBoxContainer/EvidencePanel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(334, 0)
+layout_mode = 2
+
+[node name="ConfigPanel" parent="VBoxContainer/EvidencePanel/VBoxContainer/HBoxContainer" instance=ExtResource("1_1cff8")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 160)
+layout_mode = 2
+
+[connection signal="item_selected" from="VBoxContainer/EvidencePanel/VBoxContainer/ItemList" to="." method="_on_item_list_item_selected"]

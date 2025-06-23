@@ -32,7 +32,9 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	var has_choice = dialog_lines[dialog_index].has("choices")
-	if event.is_action_pressed("next_line") and not has_choice:
+	var is_hovered = dialog_ui.court_data_button.is_hovered()
+	var is_visiable = dialog_ui.evidence_center_container.is_visible_in_tree()
+	if event.is_action_pressed("next_line") and not has_choice and not is_hovered and not is_visiable:
 		if dialog_ui.animate_text:
 			dialog_ui.skip_text_animation()
 		else:

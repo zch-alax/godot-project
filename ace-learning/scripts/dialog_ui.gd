@@ -19,6 +19,8 @@ var current_character_detail: Dictionary
 @onready var text_blip_sound: AudioStreamPlayer = $TextBlipSound
 @onready var animated_line: AnimatedSprite2D = %AnimatedLine
 @onready var choice_list: VBoxContainer = $ChoicesContainer/ChoiceList
+@onready var evidence_center_container: CenterContainer = $EvidenceCenterContainer
+@onready var court_data_button: Button = $ConfigPanel/HBoxContainer/CourtDataButton
 
 func _ready() -> void:
 	choice_list.hide()
@@ -70,6 +72,9 @@ func display_choices(choices: Array):
 		choice_button.pressed.connect(_on_choice_button_pressed.bind(choice["goto"]))
 		choice_button.text = choice["text"]
 		choice_list.add_child(choice_button)
+	var empty_control = Control.new()
+	empty_control.custom_minimum_size.y = 80
+	choice_list.add_child(empty_control)
 	choice_list.show()
 
 func _on_text_blip_timer_timeout() -> void:
@@ -82,3 +87,6 @@ func _on_sentence_pause_timer_timeout() -> void:
 func _on_choice_button_pressed(anchor: String) -> void:
 	choice_selected.emit(anchor)
 	choice_list.hide()
+
+func _on_court_data_button_pressed() -> void:
+	evidence_center_container.show()

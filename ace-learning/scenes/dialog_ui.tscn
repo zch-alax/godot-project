@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://ddvspt581k5to"]
+[gd_scene load_steps=10 format=3 uid="uid://ddvspt581k5to"]
 
 [ext_resource type="Theme" uid="uid://ck0pokkpy4dr3" path="res://resources/dialog_ui.tres" id="1_8nsh5"]
 [ext_resource type="Script" uid="uid://bgkn0egys1lr5" path="res://scripts/dialog_ui.gd" id="2_edwrk"]
 [ext_resource type="Texture2D" uid="uid://cq5mb4av5dumu" path="res://assets/images/line button.png" id="2_yjvli"]
 [ext_resource type="Script" uid="uid://gl53g8afh38m" path="res://scripts/text_blip_sound.gd" id="3_avaca"]
 [ext_resource type="PackedScene" uid="uid://b20b1q7vp8ofe" path="res://scenes/choice_button.tscn" id="4_8nsh5"]
+[ext_resource type="PackedScene" uid="uid://dmd8d1e4nhgwp" path="res://scenes/evidence_center_container.tscn" id="4_ys628"]
 [ext_resource type="Theme" uid="uid://c2cl321x287kp" path="res://resources/court_button_theme.tres" id="6_ys628"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_avaca"]
@@ -56,6 +57,7 @@ grow_vertical = 2
 [node name="ChoiceList" type="VBoxContainer" parent="ChoicesContainer"]
 custom_minimum_size = Vector2(460, 0)
 layout_mode = 2
+theme_override_constants/separation = 8
 
 [node name="ChoiceButton" parent="ChoicesContainer/ChoiceList" instance=ExtResource("4_8nsh5")]
 custom_minimum_size = Vector2(0, 60)
@@ -163,6 +165,7 @@ polygon = PackedVector2Array(0, 0, 250, 0, 250, 20, -20, 20)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ConfigPanel"]
 layout_mode = 1
+offset_left = 20.0
 offset_right = 270.0
 offset_bottom = 20.0
 theme_override_constants/separation = 30
@@ -180,5 +183,19 @@ theme = ExtResource("6_ys628")
 theme_override_font_sizes/font_size = 8
 text = "法庭记录"
 
+[node name="EvidenceCenterContainer" parent="." instance=ExtResource("4_ys628")]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -440.0
+offset_top = -293.5
+offset_right = 440.0
+offset_bottom = 293.5
+
 [connection signal="timeout" from="SentencePauseTimer" to="." method="_on_sentence_pause_timer_timeout"]
 [connection signal="timeout" from="TextBlipTimer" to="." method="_on_text_blip_timer_timeout"]
+[connection signal="pressed" from="ConfigPanel/HBoxContainer/CourtDataButton" to="." method="_on_court_data_button_pressed"]

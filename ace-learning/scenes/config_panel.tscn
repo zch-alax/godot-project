@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://bj3f1pxnhsmsw"]
+
+[ext_resource type="Theme" uid="uid://c2cl321x287kp" path="res://resources/court_button_theme.tres" id="1_68ggw"]
+[ext_resource type="Script" uid="uid://dh6qn0nffmpt4" path="res://scripts/config_panel.gd" id="1_bnox7"]
+
+[node name="ConfigPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -270.0
+offset_top = -53.0
+offset_bottom = -33.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("1_bnox7")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(20, 0)
+color = Color(0.878431, 0.878431, 0.878431, 1)
+polygon = PackedVector2Array(0, 0, 250, 0, 250, 20, -20, 20)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+offset_left = 20.0
+offset_right = 270.0
+offset_bottom = 20.0
+theme_override_constants/separation = 30
+
+[node name="ConfigButton" type="Button" parent="HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+theme = ExtResource("1_68ggw")
+text = "退出"
+
+[node name="CourtDataButton" type="Button" parent="HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+theme = ExtResource("1_68ggw")
+theme_override_font_sizes/font_size = 8
+text = "人物记录"

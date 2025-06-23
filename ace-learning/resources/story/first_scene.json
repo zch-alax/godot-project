@@ -70,5 +70,10 @@
 	{"speaker": "Judge", "text": "今天我们要审理的是凶杀案，\n请告诉我[color=red]被害人[/color]的名字。"},
 	{"speaker": "Phoenix", "text": "[color=248ad0](我......我怎么突然想不起来了！\n名字叫什么啊！)[/color]"},
 	{"speaker": "Judge", "text": "请你回答吧。\n本次事件的[color=red]被害人[/color]姓名是？"},
+	{"choices":[
+		{"text": "绫里  千寻","goto": "died-Mia"},
+		{"text": "日高  友加","goto": "died-Cinder"},
+		{"text": "高日  美佳","goto": "died-Cindy"}
+	]},
 	{}
 ]
