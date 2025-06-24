@@ -44,6 +44,7 @@ func _input(event: InputEvent) -> void:
 				process__current_line()
 
 func process__current_line():
+	dialog_ui.evidence_rect.hide()
 	dialog_ui.animated_line.visible = false
 	if dialog_index >= dialog_lines.size() or dialog_index < 0:
 		printerr("ERROR:dialog index out of bounds: ", dialog_index)
@@ -58,9 +59,6 @@ func process__current_line():
 		dialog_index += 1
 		return
 	
-	if line.has("choices"):
-		dialog_ui.display_choices(line["choices"])
-	
 	if line.has("goto"):
 		dialog_index = get_anchor_position(line["goto"])
 		process__current_line()
@@ -74,11 +72,20 @@ func process__current_line():
 	if line.has("speaker"):
 		var character_name = Character.get_enum_from_string(line["speaker"])
 		character_sprite.change_character(character_name, true, line.get("expression", ""))
-	
-	if line.has("text"):
+		if line.has("show_evidence"):
+			dialog_ui.show_evidence(line["show_evidence"])
+		
+	if line.has("choices"):
+		dialog_ui.display_choices(line["choices"])
+	elif line.has("text"):
 		var character_name = Character.get_enum_from_string(line.get("speaker", ""))
 		dialog_ui.change_line(character_name, line["text"])
-			
+		if line.has("add-evidence"):
+			dialog_ui.add_evidence(line["add-evidence"])
+	else:
+		dialog_index += 1
+		process__current_line()
+		return
 
 func load_dialog(file_path: String):
 	if not FileAccess.file_exists(file_path):

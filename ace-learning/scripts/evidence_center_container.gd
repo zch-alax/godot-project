@@ -12,9 +12,13 @@ func _ready() -> void:
 	item_list.select(0)
 
 func display_evidence():
-	for evidence_detail in Evidence.EVIDENCE_DETAIL:
-		item_list.add_icon_item(Evidence.EVIDENCE_DETAIL[evidence_detail]["sprite"])
+	for evidence_index in Evidence.EVIDENCE_DETAIL:
+		var is_add_item = Evidence.EVIDENCE_DETAIL[evidence_index]["is_add_item"]
+		if is_add_item:
+			item_list.add_icon_item(Evidence.EVIDENCE_DETAIL[evidence_index]["sprite"])
 
+func add_evidence(evidence_index: int):
+	item_list.add_icon_item(Evidence.EVIDENCE_DETAIL[evidence_index]["sprite"])
 
 func display_evidence_detail(item_index: int):
 	var evidence = Evidence.EVIDENCE_DETAIL[item_index]

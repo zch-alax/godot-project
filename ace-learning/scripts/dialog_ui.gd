@@ -21,9 +21,11 @@ var current_character_detail: Dictionary
 @onready var choice_list: VBoxContainer = $ChoicesContainer/ChoiceList
 @onready var evidence_center_container: CenterContainer = $EvidenceCenterContainer
 @onready var court_data_button: Button = $ConfigPanel/HBoxContainer/CourtDataButton
+@onready var evidence_rect: TextureRect = %EvidenceRect
 
 func _ready() -> void:
 	choice_list.hide()
+	evidence_rect.hide()
 	speaker_panel.visible = false
 	animated_line.visible = false
 	speaker_name.text = ""
@@ -76,6 +78,18 @@ func display_choices(choices: Array):
 	empty_control.custom_minimum_size.y = 80
 	choice_list.add_child(empty_control)
 	choice_list.show()
+
+func show_evidence(evidence_name: String):
+	evidence_rect.show()
+	var evidence_index = Evidence.get_enum_from_string(evidence_name)
+	var detail = Evidence.EVIDENCE_DETAIL[evidence_index]
+	evidence_rect.texture = detail["sprite"]
+	var tween = create_tween()
+	tween.tween_property(evidence_rect, "scale", Vector2.ONE, 0.5)
+
+func add_evidence(evidence_name: String):
+	var evidence_index = Evidence.get_enum_from_string(evidence_name)
+	evidence_center_container.add_evidence(evidence_index)
 
 func _on_text_blip_timer_timeout() -> void:
 	text_blip_sound.play_sound(current_character_detail.get("gender", "default"))

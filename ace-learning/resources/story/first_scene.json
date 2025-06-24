@@ -30,6 +30,7 @@
 	{"background": "judge-side"},
 	{"speaker": "Judge", "text": "我会问你一些简单的问题，\n请你回答。"},
 	{"speaker": "Judge", "text": "首先，请你回答本次事件\n[color=red]被告[/color]的名字。"},
+	
 	{"choices": [
 		{"text": "成步堂  龙一", "goto": "Defendant-Phoenix"},
 		{"text": "矢张  政志", "goto": "Defendant-Larry"},
@@ -53,7 +54,7 @@
 	{"speaker": "Phoenix", "text": "被告......就是矢张先生。"},
 	{"speaker": "Judge", "text": "没错。"},
 	{"speaker": "Judge", "text": "就像这样子，\n遇到问题，你只要冷静回答就好！"},
-	{"goto": "end"},
+	{"goto": "end1"},
 	
 	{"anchor": "Defendant-Mia"},
 	{"background": "defense-side"},
@@ -65,15 +66,69 @@
 	{"speaker": "Judge", "text": "我没听清楚你的回答。那么我在问一次。", "expression": "shake head"},
 	{"goto": "Who is Defendant"},
 	
-	{"anchor": "end"},
+	{"anchor": "end1"},
 	{"speaker": "Judge", "text": "那么，下一个问题。"},
 	{"speaker": "Judge", "text": "今天我们要审理的是凶杀案，\n请告诉我[color=red]被害人[/color]的名字。"},
 	{"speaker": "Phoenix", "text": "[color=248ad0](我......我怎么突然想不起来了！\n名字叫什么啊！)[/color]"},
+	{"anchor": "who si Victim"},
 	{"speaker": "Judge", "text": "请你回答吧。\n本次事件的[color=red]被害人[/color]姓名是？"},
 	{"choices":[
 		{"text": "绫里  千寻","goto": "died-Mia"},
 		{"text": "日高  友加","goto": "died-Cinder"},
 		{"text": "高日  美佳","goto": "died-Cindy"}
 	]},
+	{"anchor": "died-Mia"},
+	{"speaker": "Phoenix", "text": "呃 ~ 绫里  千寻小姐......"},
+	{"speaker": "Mia", "text": "我我、我怎么可能是被害人啊！"},
+	{"speaker": "Phoenix", "text": "对、对不起。我只是\n把脑海中浮现的名字讲出来......"},
+	{"sepaker": "Judge", "text": "好吧，本院再问你一次。"},
+	{"goto": "who si Victim"},
+	
+	{"anchor": "died-Cinder"},
+	{"speaker": "Phoenix", "text": "记得好像是\n日高  友加小姐......"},
+	{"speaker": "Judge", "text": "在法庭中，\n不可做出如此不确切的发言。"},
+	{"sepaker": "Judge", "text": "好吧，本院再问你一次。"},
+	{"goto": "who si Victim"},
+	
+	{"anchor": "died-Cindy"},
+	{"speaker": "Phoenix", "text": "呃。被害者的名字是\n高日  美佳小姐。"},
+	{"speaker": "Judge", "text": "......没错。"},
+	{"goto": "end2"},
+	{"anchor": "end2"},
+	{"speaker": "Judge", "text": "那么，她是怎样被杀害的呢？"},
+	
+	{"anchor": "the reason for death"},
+	{"speaker": "Judge", "text": "被害人的死因是......？"},
+	
+	{"choices":[
+		{"text": "被下毒","goto": "poison"},
+		{"text": "被钝器殴打","goto": "hit"},
+		{"text": "被人勒死","goto": "strangle"}
+	]},
+	{"anchor": "poison"},
+	{"speaker": "Phoenix", "text": "呃，记得她好像是\n被人下了毒吧？"},
+	{"speaker": "Judge", "text": "你怎么问我了呢！"},
+	{"speaker": "Judge", "text": "那么本院再问你一次。"},
+	{"goto": "the reason for death"},
+	
+	{"anchor": "hit"},
+	{"speaker": "Phoenix", "text": "被人用钝器强力殴打了一次......"},
+	{"speaker": "Judge", "text": "没错。"},
+	{"goto": "end3"},
+	
+	{"anchor": "strangle"},
+	{"speaker": "Phoenix", "text": "记得她好像是被人勒死的吧......?"},
+	{"speaker": "Judge", "text": "你不如勒紧自己的脖子吧。"},
+	{"speaker": "Judge", "text": "那么本院再问你一次。"},
+	{"goto": "the reason for death"},
+	
+	{"anchor": "end3"},
+	{"speaker": "Judge", "text": "那么问题就问到这里，\n我们开始进行审理吧。"},
+	{"speaker": "Judge", "text": "关于那个“钝器”，\n具体来说是个怎样的东西......？"},
+	{"speaker": "Winston", "text": "凶器是这个\n“沉思者”的小雕像。", "show_evidence": "Statue"},
+	{"speaker": "Winston", "text": "这东西就掉在遗体旁边。"},
+	{"speaker": "Judge", "text": "嗯。好。\n本院受理这件证物。"},
+	{"text": "[color=248ad0]已将证物“小雕像”的资料\n放进法庭记录中。[/color]", "add-evidence": "Statue"},
+	{"speaker": "Judge", "text": "那么亚内检察官，\n请你传唤证人。"},
 	{}
 ]

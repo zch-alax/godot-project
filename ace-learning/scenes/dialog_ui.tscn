@@ -196,6 +196,18 @@ offset_top = -293.5
 offset_right = 440.0
 offset_bottom = 293.5
 
+[node name="EvidenceRect" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 100.0
+offset_top = -110.0
+offset_right = 250.0
+offset_bottom = 40.0
+grow_vertical = 2
+
 [connection signal="timeout" from="SentencePauseTimer" to="." method="_on_sentence_pause_timer_timeout"]
 [connection signal="timeout" from="TextBlipTimer" to="." method="_on_text_blip_timer_timeout"]
 [connection signal="pressed" from="ConfigPanel/HBoxContainer/CourtDataButton" to="." method="_on_court_data_button_pressed"]
