@@ -5,7 +5,8 @@ extends Node
 enum Name {
 	BADGE,
 	REPORT,
-	STATUE
+	STATUE,
+	PASSPORT
 }
 
 const EVIDENCE_DETAIL := {
@@ -25,6 +26,12 @@ const EVIDENCE_DETAIL := {
 		"name": "小雕像",
 		"detail": "“沉思者”造型的装饰品。\n相当沉重。",
 		"sprite": preload("res://assets/images/evidence/25.png"),
+		"is_add_item": false
+	},
+	Name.PASSPORT: {
+		"name": "护照",
+		"detail": "被害人似乎是在\n案发前一天的7月30日从纽约回国的。",
+		"sprite": preload("res://assets/images/evidence/12.png"),
 		"is_add_item": false
 	}
 }

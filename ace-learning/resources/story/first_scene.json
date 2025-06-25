@@ -130,5 +130,12 @@
 	{"speaker": "Judge", "text": "嗯。好。\n本院受理这件证物。"},
 	{"text": "[color=248ad0]已将证物“小雕像”的资料\n放进法庭记录中。[/color]", "add-evidence": "Statue"},
 	{"speaker": "Judge", "text": "那么亚内检察官，\n请你传唤证人。"},
+	{"speaker": "Winston", "text": "首先，我们来听听被告\n矢张先生怎么说。"},
+	{"speaker": "Winston", "text": "在遇害的前一天，\n她刚从纽约回来。", "show_evidence": "passport"},
+	{"text": "[color=248ad0]已将证物“护照”的资料\n放进法庭记录中。[/color]", "add-evidence": "passport"},
+	{"speaker": "Judge", "text": "嗯，的确。回国日期是\n遇害的前一天......"},
+	{"speaker": "Judge", "text": "亚内检察官。\n请你传唤这位证人！"},
+	{"speaker": "Judge", "text": "那么就请你马上\n进行“证言”吧。"},
+	{"text": "[color=red]~ 案件当天目击到的事 ~[/color]"},
 	{}
 ]
