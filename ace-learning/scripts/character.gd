@@ -7,7 +7,8 @@ enum Name {
 	NONAME,
 	LARRY,
 	JUDGE,
-	WINSTON
+	WINSTON,
+	SAHWIT
 }
 
 const CHARACTER_DETAILS := {
@@ -46,6 +47,12 @@ const CHARACTER_DETAILS := {
 		"name": "亚内",
 		"gender": "male",
 		"sprite_frames": preload("res://resources/character/winston.tres")
+	},
+	Name.SAHWIT: {
+		"en_name": "Sahwit",
+		"name": "山野",
+		"gender": "male",
+		"sprite_frames": ""
 	}
 }
 

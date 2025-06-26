@@ -5,6 +5,7 @@ extends Node
 enum Name {
 	BADGE,
 	REPORT,
+	BLACKOUTRECORD,
 	STATUE,
 	PASSPORT
 }
@@ -20,6 +21,12 @@ const EVIDENCE_DETAIL := {
 		"name": "高日  美佳的解剖记录",
 		"detail": "死亡时间为7月31日\n下午4时到5时之间。受到\n钝器一击，失血过多死亡。",
 		"sprite": preload("res://assets/images/evidence/2.png"),
+		"is_add_item": true
+	},
+	Name.BLACKOUTRECORD: {
+		"name": "停电记录",
+		"detail": "在案发当天的\n下午1点至6点，\n案发现场的公寓是停电的。",
+		"sprite": preload("res://assets/images/evidence/40.png"),
 		"is_add_item": true
 	},
 	Name.STATUE: {

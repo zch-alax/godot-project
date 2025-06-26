@@ -15,6 +15,7 @@ const background_imgs := {
 
 var dialog_lines: Array = []
 var dialog_index: int = 0
+var wait_msg_gobal: String
 
 @onready var next_sentence_sound: AudioStreamPlayer = $NextSentenceSound
 @onready var character_sprite: Node2D = $CanvasLayer2/Control/CharacterSprite
@@ -42,6 +43,13 @@ func _input(event: InputEvent) -> void:
 				dialog_index += 1
 				next_sentence_sound.play()
 				process__current_line()
+				
+	if event.is_action_pressed("wait"):
+		var line = dialog_lines[dialog_index]
+		if line.has("wait"):
+			wait_msg_gobal = line["wait"]
+			dialog_index += 1
+			process__current_line()
 
 func process__current_line():
 	dialog_ui.evidence_rect.hide()
@@ -78,8 +86,17 @@ func process__current_line():
 	if line.has("choices"):
 		dialog_ui.display_choices(line["choices"])
 	elif line.has("text"):
-		var character_name = Character.get_enum_from_string(line.get("speaker", ""))
-		dialog_ui.change_line(character_name, line["text"])
+		if !line.has("action"):
+			var character_name = Character.get_enum_from_string(line.get("speaker", ""))
+			dialog_ui.change_line(character_name, line["text"])
+		else:
+			if line["action"] == wait_msg_gobal:
+				var character_name = Character.get_enum_from_string(line.get("speaker", ""))
+				dialog_ui.change_line(character_name, line["text"])
+			else:
+				dialog_index += 1
+				process__current_line()
+				return
 		if line.has("add-evidence"):
 			dialog_ui.add_evidence(line["add-evidence"])
 	else:
