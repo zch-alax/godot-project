@@ -1,5 +1,7 @@
 extends CenterContainer
 
+var selected_item_index := 0
+
 @onready var evidence_rect: TextureRect = %EvidenceRect
 @onready var evidence_name: Label = %EvidenceName
 @onready var evidence_detial: Label = %EvidenceDetial
@@ -31,7 +33,12 @@ func display_evidence_detail(item_index: int):
 	if evidence.has("sprite"):
 		evidence_rect.texture = evidence["sprite"]
 
+func get_selected_evidence_name():
+	var evidence = Evidence.EVIDENCE_DETAIL[selected_item_index]
+	return evidence["en_name"]
+
 func _on_item_list_item_selected(index: int) -> void:
+	selected_item_index = index
 	display_evidence_detail(index)
 
 func _on_config_button_pressed():

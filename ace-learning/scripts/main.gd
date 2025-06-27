@@ -27,6 +27,7 @@ func _ready() -> void:
 	SceneManager.transition_in_completed.connect(_on_transition_in_completed)
 	dialog_ui.animation_done.connect(_on_animation_done)
 	dialog_ui.choice_selected.connect(_on_choice_selected)
+	dialog_ui.evidence_center_container.config_panel.court_data_button.pressed.connect(_on_court_data_button_pressed)
 	dialog_lines = load_dialog(dialog_file)
 	dialog_index = 0
 	SceneManager.transition_in()
@@ -139,3 +140,19 @@ func _on_choice_selected(anchor: String):
 	dialog_index = get_anchor_position(anchor)
 	process__current_line()
 	next_sentence_sound.play()
+
+func _on_court_data_button_pressed():
+	# 获取到选择的证物
+	var evidence_name = dialog_ui.evidence_center_container.get_selected_evidence_name()
+	# 与对应的对话进行对比，如果有true-evidence的话，则进行下一步剧情
+	var line = dialog_lines[dialog_index]
+	if line.has("true-evidence") and line["true-evidence"] == evidence_name:
+		dialog_ui.evidence_center_container.hide()
+		dialog_index = get_anchor_position(line["true-goto"])
+		process__current_line()
+	else:
+		# 如果出示的证物错误或者没选对对话，则出示错误对话
+		
+		pass
+	
+	

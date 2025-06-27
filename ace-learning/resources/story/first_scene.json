@@ -56,18 +56,23 @@
 	{"speaker": "Sahwit", "text": "[color=green]我当时很想马上叫警察过来。[/color]"},
 	{"speaker": "Sahwit", "text": "[color=green]但是她房间的电话\n是打不通的。[/color]"},
 	{"speaker": "Sahwit", "text": "[color=green]所以我是从附近的公共电话\n通报给警察的。[/color]"},
-	{"speaker": "Sahwit", "text": "[color=green]时间我记得很清楚。\n是下午2点的时候。[/color]", "wait": "time"},
+	{"speaker": "Sahwit", "text": "[color=green]时间我记得很清楚。\n是下午2点的时候。[/color]", "wait": "time", "true-evidence": "Report", "true-goto": "time"},
 	{"speaker": "Phoenix", "text": "下午2点！\n你确认吗？", "action": "time"},
 	{"speaker": "Sahwit", "text": "是。\n没错的。", "action": "time"},
 	{"speaker": "Sahwit", "text": "[color=green]从现场逃走的男人，我绝对没看错，\n就是这位被告。[/color]"},
-	{"speaker": "Mia", "text": "......他的证言到此为止了。", "goto": "Testimony"},
-	
+	{"speaker": "Mia", "text": "......他的证言到此为止了。"},
+	{"goto": "Testimony"},
+	{"anchor": "time1"},
 	{"speaker": "Phoenix", "text": "这件证物明确显示出跟刚才的证述有[矛盾]！"},
 	{"speaker": "Judge", "text": "......这件证物与刚才的发言\n有什么关系吗？"},
 	{"speaker": "Judge", "text": "辩护人，发言请三思。扣血"},
-	
+	{"anchor": "time2"},
 	{"speaker": "Phoenix", "text": "这件证物明确显示出跟刚才的证述有[矛盾]！"},
 	{"speaker": "Judge", "text": "......？"},
 	{"speaker": "Judge", "text": "本院驳回辩方的异议。扣血"},
+	
+	{"anchor": "time"},
+	{"speaker": "Phoenix", "text": "发现遗体的时间是2点，确定没错吗？"},
+	{"speaker": "Sahwit", "text": "嗯。\n是2点没错。"},
 	{}
 ]
