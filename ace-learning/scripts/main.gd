@@ -16,6 +16,7 @@ const background_imgs := {
 var dialog_lines: Array = []
 var dialog_index: int = 0
 var wait_msg_gobal: String
+var error_present: String
 
 @onready var next_sentence_sound: AudioStreamPlayer = $NextSentenceSound
 @onready var character_sprite: Node2D = $CanvasLayer2/Control/CharacterSprite
@@ -74,6 +75,9 @@ func process__current_line():
 		return
 	
 	if line.has("anchor"):
+		if line.has("error-present"):
+			error_present = line["error-present"]
+			dialog_ui.progress_bar.show()
 		dialog_index += 1
 		process__current_line()
 		return
@@ -147,12 +151,12 @@ func _on_court_data_button_pressed():
 	# 与对应的对话进行对比，如果有true-evidence的话，则进行下一步剧情
 	var line = dialog_lines[dialog_index]
 	if line.has("true-evidence") and line["true-evidence"] == evidence_name:
-		dialog_ui.evidence_center_container.hide()
 		dialog_index = get_anchor_position(line["true-goto"])
-		process__current_line()
 	else:
 		# 如果出示的证物错误或者没选对对话，则出示错误对话
-		
-		pass
-	
+		var rand_num = str(randi_range(1, 2))
+		dialog_index = get_anchor_position(error_present + rand_num)
+	dialog_ui.progress_bar.value -= 2
+	dialog_ui.evidence_center_container.hide()
+	process__current_line()
 	

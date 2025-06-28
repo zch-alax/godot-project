@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ddvspt581k5to"]
+[gd_scene load_steps=13 format=3 uid="uid://ddvspt581k5to"]
 
 [ext_resource type="Theme" uid="uid://ck0pokkpy4dr3" path="res://resources/dialog_ui.tres" id="1_8nsh5"]
 [ext_resource type="Script" uid="uid://bgkn0egys1lr5" path="res://scripts/dialog_ui.gd" id="2_edwrk"]
@@ -25,6 +25,23 @@ animations = [{
 "name": &"default",
 "speed": 3.0
 }]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3d5y4"]
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xb013"]
+bg_color = Color(0.141176, 0.541176, 0.815686, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="Theme" id="Theme_xb013"]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_3d5y4")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_xb013")
 
 [node name="dialog_ui" type="Control"]
 layout_mode = 3
@@ -207,6 +224,23 @@ offset_top = -110.0
 offset_right = 250.0
 offset_bottom = 40.0
 grow_vertical = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+custom_minimum_size = Vector2(300, 40)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -260.0
+offset_top = 60.0
+offset_right = -60.0
+offset_bottom = 87.0
+grow_horizontal = 0
+theme = SubResource("Theme_xb013")
+max_value = 10.0
+step = 2.0
+value = 10.0
+show_percentage = false
 
 [connection signal="timeout" from="SentencePauseTimer" to="." method="_on_sentence_pause_timer_timeout"]
 [connection signal="timeout" from="TextBlipTimer" to="." method="_on_text_blip_timer_timeout"]

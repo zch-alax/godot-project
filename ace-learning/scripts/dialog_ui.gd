@@ -22,6 +22,7 @@ var current_character_detail: Dictionary
 @onready var evidence_center_container: CenterContainer = $EvidenceCenterContainer
 @onready var court_data_button: Button = $ConfigPanel/HBoxContainer/CourtDataButton
 @onready var evidence_rect: TextureRect = %EvidenceRect
+@onready var progress_bar: ProgressBar = $ProgressBar
 
 func _ready() -> void:
 	choice_list.hide()
